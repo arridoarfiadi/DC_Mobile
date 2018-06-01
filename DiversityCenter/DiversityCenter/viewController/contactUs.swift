@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import MessageUI
 
-class FirstViewController: UIViewController {
+class contactUs: UIViewController {
 
+    @IBAction func email(_ sender: Any) {
+        let email = "uwbdiv@uw.edu"
+        if let url = URL(string: "mailto:\(email)"){
+            UIApplication.shared.open(url)
+        }
+    }
+    @IBAction func callButton(_ sender: Any) {
+        let url: NSURL = URL(string:"TEL://4253525030")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

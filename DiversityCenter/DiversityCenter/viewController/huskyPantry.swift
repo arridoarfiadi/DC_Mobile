@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
+class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
     @IBOutlet weak var search: UISearchBar!
     var filteredData = [String]()
     
