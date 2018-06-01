@@ -1,5 +1,5 @@
 # DCMobileProject
 
-* IOS application project for UWB Diversity Center
+* IOS application project
 * Created by: Arrido Arfiadi
 
