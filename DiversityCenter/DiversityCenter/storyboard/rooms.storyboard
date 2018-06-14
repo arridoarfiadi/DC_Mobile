@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Sx-ZP-IzR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="xEg-le-d74">
+            <objects>
+                <navigationController id="1Sx-ZP-IzR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D98-RV-JGO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8f6-cu-zH5" kind="relationship" relationship="rootViewController" id="f3c-Lr-Reu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="riF-Ca-okz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="137"/>
+        </scene>
+        <!--Rooms-->
+        <scene sceneID="Bkm-Oh-cAR">
+            <objects>
+                <viewController id="8f6-cu-zH5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d4E-Pc-lgS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jeY-TA-d6F">
+                                <rect key="frame" x="87" y="312" width="201.5" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuT-Hk-uj6">
+                                <rect key="frame" x="80" y="363" width="215" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="jeY-TA-d6F" secondAttribute="centerY" id="BRD-6A-siu"/>
+                            <constraint firstItem="zuT-Hk-uj6" firstAttribute="top" secondItem="jeY-TA-d6F" secondAttribute="bottom" constant="8" symbolic="YES" id="K80-67-QP2"/>
+                            <constraint firstItem="zuT-Hk-uj6" firstAttribute="centerX" secondItem="jeY-TA-d6F" secondAttribute="centerX" id="YQM-PF-y4e"/>
+                            <constraint firstAttribute="centerX" secondItem="jeY-TA-d6F" secondAttribute="centerX" id="sdE-Xe-PPs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MzV-Je-OVj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Rooms" image="create_new" selectedImage="create_new" id="Ks6-Fp-Xgh"/>
+                    <navigationItem key="navigationItem" id="Ggy-wW-k7O">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="OAN-XN-zug"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="540-iH-m64" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="136"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="create_new" width="30" height="30"/>
+    </resources>
+</document>

@@ -1,0 +1,6 @@
+framework module Pods_DiversityCenter {
+  umbrella header "Pods-DiversityCenter-umbrella.h"
+
+  export *
+  module * { export * }
+}

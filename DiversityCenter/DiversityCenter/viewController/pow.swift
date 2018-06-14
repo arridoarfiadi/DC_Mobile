@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class pow: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
+    
+    @IBAction func signout(_ sender: UIBarButtonItem) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        self.performSegue(withIdentifier: "signout", sender: self)
+    }
     
     let reuseIdentifier = "cell"
     var religion = ["Islam", "Evangelical", "Buddhist","Sikh", "Hindu", "Jewish", "Episcopal","Greek Orthodox", "Salvation Army","Seventh Day Adventists","United Church of Christ", "United Methodist", "Unitarian Univeralist", "Roman Catholic", "Presbyterian", "Lutheran", "American Baptist", "Christian Science"]

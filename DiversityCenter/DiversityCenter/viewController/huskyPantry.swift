@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
+    
+    
+    @IBAction func signout(_ sender: UIBarButtonItem) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        self.performSegue(withIdentifier: "signout", sender: self)
+    }
+    
+    
+    
+    
     @IBOutlet weak var search: UISearchBar!
     var filteredData = [String]()
     
@@ -41,6 +53,7 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,
             cell?.textLabel?.text = itemName[indexPath.row]
             cell?.detailTextLabel?.text = "\(count[indexPath.row])"
         }
+        
         
         
         return cell!
@@ -76,10 +89,14 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+        
   
-    
+    }
 
 
 
-}
+
 
