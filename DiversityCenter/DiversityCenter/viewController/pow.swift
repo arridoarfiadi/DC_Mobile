@@ -55,6 +55,7 @@ class pow: UIViewController, UICollectionViewDelegate, UICollectionViewDataSourc
             let vc = segue.destination as! MapView //Cast with your DestinationController
             //Now simply set the title property of vc
             vc.selected = indexPath.row
+            vc.selectedReligion = self.religion[indexPath.item]
         }
     }
 

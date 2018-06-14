@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aD4-zx-1m9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -64,11 +63,14 @@
         <scene sceneID="xXc-KB-dUp">
             <objects>
                 <viewController id="aD4-zx-1m9" customClass="loginCheckViewController" customModule="DiversityCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N7o-Bm-R0X"/>
+                        <viewControllerLayoutGuide type="bottom" id="l14-dv-3to"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uX7-1Y-HCx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="sBq-Ow-Uh3"/>
                     </view>
                     <connections>
                         <segue destination="49e-Tb-3d3" kind="showDetail" identifier="signedIn" animates="NO" id="45O-aa-kMd"/>
@@ -83,39 +85,47 @@
         <scene sceneID="hmR-zp-Qrg">
             <objects>
                 <viewController id="IuP-hS-YUo" customClass="LoginViewController" customModule="DiversityCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nv6-ed-7Uc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uy1-Wv-STw"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Li6-67-mRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="University-of-Washington-Bothell" translatesAutoresizingMaskIntoConstraints="NO" id="zkm-gK-MLG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="University-of-Washington-Bothell-3" translatesAutoresizingMaskIntoConstraints="NO" id="zkm-gK-MLG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-uK-Ir8">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-uK-Ir8">
                                 <rect key="frame" x="129" y="137" width="116" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-SF-th8">
-                                <rect key="frame" x="163" y="558" width="48" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Welcome," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLD-b7-kgY">
+                                <rect key="frame" x="149" y="108" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-SF-th8">
+                                <rect key="frame" x="163" y="586" width="48" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Enter">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLD-b7-kgY">
-                                <rect key="frame" x="149" y="108" width="76" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="BWx-UU-lCY"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zkm-gK-MLG" secondAttribute="trailing" id="24Q-7j-9wt"/>
+                            <constraint firstItem="zkm-gK-MLG" firstAttribute="centerX" secondItem="ryh-uK-Ir8" secondAttribute="centerX" id="Dlf-qq-wrL"/>
+                            <constraint firstItem="zkm-gK-MLG" firstAttribute="centerX" secondItem="wLD-b7-kgY" secondAttribute="centerX" id="NRP-gx-Qil"/>
+                            <constraint firstItem="zkm-gK-MLG" firstAttribute="bottom" secondItem="Uy1-Wv-STw" secondAttribute="top" id="RQ1-dx-sxt"/>
+                            <constraint firstItem="zkm-gK-MLG" firstAttribute="leading" secondItem="Li6-67-mRa" secondAttribute="leading" id="TEO-0Q-8aK"/>
+                            <constraint firstItem="zkm-gK-MLG" firstAttribute="top" secondItem="Li6-67-mRa" secondAttribute="top" id="XDy-Gn-UBc"/>
+                            <constraint firstItem="zkm-gK-MLG" firstAttribute="centerX" secondItem="2Rq-SF-th8" secondAttribute="centerX" id="zte-RL-1rZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QnC-Sh-euk"/>
                     <connections>
@@ -160,9 +170,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="University-of-Washington-Bothell" width="375" height="667"/>
+        <image name="University-of-Washington-Bothell-3" width="440" height="654"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="45O-aa-kMd"/>
+        <segue reference="Ox3-ol-gGd"/>
     </inferredMetricsTieBreakers>
 </document>

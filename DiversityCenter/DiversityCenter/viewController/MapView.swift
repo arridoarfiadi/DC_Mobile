@@ -28,6 +28,7 @@ final class annotation:NSObject, MKAnnotation{
 
 class MapView: UIViewController {
     var selected: Int = 0
+    var selectedReligion: String = ""
     
 
     @IBOutlet weak var mapView: MKMapView!
@@ -54,7 +55,7 @@ class MapView: UIViewController {
             mapView.addAnnotation(annotation(title: places[0],subtitle: places[1], coordinate: coordinates))
         }
         mapView.setRegion(UWBregion, animated: true)
-        
+        self.title = selectedReligion
        
     }
     
