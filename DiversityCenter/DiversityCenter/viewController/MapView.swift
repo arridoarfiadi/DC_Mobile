@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-final class annotation:NSObject, MKAnnotation{
+class annotation:NSObject, MKAnnotation{
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?
@@ -26,34 +26,33 @@ final class annotation:NSObject, MKAnnotation{
     }
 }
 
-class MapView: UIViewController {
+
+
+class MapView: UIViewController, CLLocationManagerDelegate {
     var selected: Int = 0
     var selectedReligion: String = ""
-    
+    var locationManager = CLLocationManager()
 
     @IBOutlet weak var mapView: MKMapView!
     
     
     override func viewDidLoad() {
+        self.locationManager.requestWhenInUseAuthorization()
         
-        var islam: [[String]] = []
-        
-        islam.append(["Islamic Center of Bothell", "Nothing ", "47.7589" ,"-122.1906"])
-        islam.append(["Masjid Umar Al-Farooq", "Nothing ", "47.7831" ,"-122.3081"])
-        var religion: [[[String]]] = []
-        religion.append(islam)
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            mapView.showsUserLocation = true
+        }
+        let islam = islamLocation().location
+        //var religion: [[String]] = []
+        //religion.append(islam)
         super.viewDidLoad()
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         let UWBCoor = CLLocationCoordinate2D(latitude: 47.7589, longitude: -122.1906)
         let UWBregion = MKCoordinateRegion(center: UWBCoor, span: MKCoordinateSpan(latitudeDelta: 0.075, longitudeDelta: 0.35))
         
-       print(selected)
-        
-        for places in religion[selected]{
-            let coordinates = CLLocationCoordinate2D(latitude: Double(places[2])!, longitude: Double(places[3])!)
-            mapView.addAnnotation(annotation(title: places[0],subtitle: places[1], coordinate: coordinates))
-        }
+        mapView.addAnnotations(islam)
         mapView.setRegion(UWBregion, animated: true)
         self.title = selectedReligion
        
@@ -67,6 +66,7 @@ class MapView: UIViewController {
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
 }
 
 extension MapView: MKMapViewDelegate{
@@ -82,5 +82,18 @@ extension MapView: MKMapViewDelegate{
         return nil
     }
     }
+
+class islamLocation: NSObject{
+    var location = [annotation]()
+    override init(){
+        location += [annotation(title: "Islamic Center of Bothell", subtitle: "3300 Monte Villa Pkwy, Bothell, WA 98201. Telp: (512) 222-6996 ", coordinate: CLLocationCoordinate2D(latitude: 47.7589 ,longitude: -122.1906))]
+        location += [annotation(title: "Masjid Umar Al-Farooq", subtitle: "5507 238th St SW, Mountlake Terrace, WA 98043. Telp: (425) 776-6162", coordinate: CLLocationCoordinate2D(latitude: 47.7831 ,longitude: -122.3081))]
+        location += [annotation(title: "Idris Mosque", subtitle: "1420 NE Northgate Way, Seattle, WA 98125. Telp: (206) 363-3013", coordinate: CLLocationCoordinate2D(latitude: 47.7087 ,longitude: -122.3128))]
+        location += [annotation(title: "IMAN Mosque", subtitle: "512 State St S, Kirkland, WA 98033. Telp: (206) 202-4626", coordinate: CLLocationCoordinate2D(latitude: 47.671695 ,longitude: -122.202659))]
+        location += [annotation(title: "Muslim Association of Puget Sound", subtitle: "17550 NE 67th Ct, Redmond, WA 98052. Telp: (425) 861-9555", coordinate: CLLocationCoordinate2D(latitude: 47.672136 ,longitude: 122.094514))]
+        location += [annotation(title: "Islamic Center of Eastside", subtitle: "14230 NE 21st St, Bellevue, WA 98007. Telp: (425) 746-0398", coordinate: CLLocationCoordinate2D(latitude: 47.629287 ,longitude: -122.150091))]
+    }
+}
+
     
 

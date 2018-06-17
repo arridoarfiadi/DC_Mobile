@@ -23,10 +23,12 @@ class loginCheckViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         if (FBSDKAccessToken.current()) != nil{
+            //Goes to home screen
             self.performSegue(withIdentifier: "signedIn", sender: self)
             
         }
         else{
+            //Goes to login screen
             self.performSegue(withIdentifier: "no", sender: self)
         }
     }

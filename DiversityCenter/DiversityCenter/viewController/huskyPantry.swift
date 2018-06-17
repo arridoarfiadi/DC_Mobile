@@ -7,8 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 import FBSDKLoginKit
-
 class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
     
     
@@ -87,14 +87,14 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,
         search.delegate = self
         search.returnKeyType = UIReturnKeyType.done
         
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
         
-  
-    }
+        }
 
 
 

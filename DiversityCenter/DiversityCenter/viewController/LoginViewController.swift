@@ -15,20 +15,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var welcome: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        //things to do after button is clicked
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        //things to do after log out button is clicked
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //make facebook button
         let btnFBLogin = FBSDKLoginButton()
         btnFBLogin.readPermissions = ["public_profile","email","user_friends"]
-        //btnFBLogin.center = self.view.center
         btnFBLogin.frame = CGRect(x: 16, y: view.frame.height - 75, width: view.frame.width - 32, height: 50)
-        //btnFBLogin.frame.origin = CGPoint(x: , y: 375)
-        
         self.view.addSubview(btnFBLogin)
         btnFBLogin.delegate = self
         
@@ -37,6 +37,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
 
     func fetchProfile(){
+        //get first and last name
         let parameters = ["fields": "first_name,last_name, picture.type(large)"]
         FBSDKGraphRequest(graphPath:"me", parameters: parameters).start { (connection, result, error) in
             let resultNew = result as? [String:Any]
@@ -51,6 +52,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         if (FBSDKAccessToken.current()) != nil{
+            //goes to home screen if logged in
             self.performSegue(withIdentifier: "lobby", sender: self)
         }
     }

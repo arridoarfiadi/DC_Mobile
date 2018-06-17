@@ -9,5 +9,6 @@ target 'DiversityCenter' do
     pod 'FacebookCore'
     pod 'FacebookLogin'
     pod 'FacebookShare'
+pod "SkeletonView"
 pod 'FBSDKLoginKit'
 end

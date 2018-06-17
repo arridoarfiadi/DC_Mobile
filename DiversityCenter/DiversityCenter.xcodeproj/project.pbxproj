@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C34B550420BEFDC400AB75AB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B550320BEFDC400AB75AB /* File.swift */; };
 		C35B3CDE20D0816300747066 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CDD20D0816300747066 /* home.storyboard */; };
 		C35B3CE020D082B200747066 /* rooms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CDF20D082B200747066 /* rooms.storyboard */; };
 		C35B3CE620D082F300747066 /* Pantry_SB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CE520D082F300747066 /* Pantry_SB.storyboard */; };
 		C35B3CE820D0830400747066 /* POW_SB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CE720D0830400747066 /* POW_SB.storyboard */; };
 		C35B3CEA20D0831200747066 /* ContactUs_SB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CE920D0831200747066 /* ContactUs_SB.storyboard */; };
+		C37A74FE20D5C1CC00719AAF /* feedCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */; };
+		C37A750020D5C4D000719AAF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A74FF20D5C4D000719AAF /* File.swift */; };
+		C37A750220D5C9C000719AAF /* feedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A750120D5C9C000719AAF /* feedTableViewController.swift */; };
 		C39964BB20BF2BCC008DB420 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39964BA20BF2BCC008DB420 /* MapView.swift */; };
 		C3A0C8AB20C0C81F00FD6213 /* pow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A0C8AA20C0C81F00FD6213 /* pow.swift */; };
 		C3A0C8AD20C0C9F000FD6213 /* controllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A0C8AC20C0C9F000FD6213 /* controllerViewCell.swift */; };
@@ -43,12 +45,14 @@
 /* Begin PBXFileReference section */
 		1847FB90CEC912BD7D7B4F54 /* Pods-DiversityCenter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiversityCenter.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiversityCenter/Pods-DiversityCenter.release.xcconfig"; sourceTree = "<group>"; };
 		9394543147A2E60DBD45D784 /* Pods-DiversityCenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiversityCenter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiversityCenter/Pods-DiversityCenter.debug.xcconfig"; sourceTree = "<group>"; };
-		C34B550320BEFDC400AB75AB /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C35B3CDD20D0816300747066 /* home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
 		C35B3CDF20D082B200747066 /* rooms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = rooms.storyboard; sourceTree = "<group>"; };
 		C35B3CE520D082F300747066 /* Pantry_SB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pantry_SB.storyboard; sourceTree = "<group>"; };
 		C35B3CE720D0830400747066 /* POW_SB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = POW_SB.storyboard; sourceTree = "<group>"; };
 		C35B3CE920D0831200747066 /* ContactUs_SB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactUs_SB.storyboard; sourceTree = "<group>"; };
+		C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCellTableViewCell.swift; sourceTree = "<group>"; };
+		C37A74FF20D5C4D000719AAF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		C37A750120D5C9C000719AAF /* feedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedTableViewController.swift; sourceTree = "<group>"; };
 		C39964BA20BF2BCC008DB420 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C3A0C8AA20C0C81F00FD6213 /* pow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pow.swift; sourceTree = "<group>"; };
 		C3A0C8AC20C0C9F000FD6213 /* controllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = controllerViewCell.swift; sourceTree = "<group>"; };
@@ -107,13 +111,23 @@
 				C3BCAAB320D259CD00A4A542 /* loginCheckViewController.swift */,
 				C3DD5F6020C4802E0042A258 /* LoginViewController.swift */,
 				C3F04172208A5CEF00A9528B /* contactUs.swift */,
+				C37A750120D5C9C000719AAF /* feedTableViewController.swift */,
 				C3F04174208A5CEF00A9528B /* huskyPantry.swift */,
 				C3A0C8AC20C0C9F000FD6213 /* controllerViewCell.swift */,
 				C3A0C8AA20C0C81F00FD6213 /* pow.swift */,
 				C39964BA20BF2BCC008DB420 /* MapView.swift */,
-				C34B550320BEFDC400AB75AB /* File.swift */,
+				C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */,
 			);
 			path = viewController;
+			sourceTree = "<group>";
+		};
+		C37A74FC20D5BEC500719AAF /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C37A74FF20D5C4D000719AAF /* File.swift */,
+			);
+			name = model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C3F04164208A5CEE00A9528B = {
@@ -137,6 +151,7 @@
 		C3F0416F208A5CEF00A9528B /* DiversityCenter */ = {
 			isa = PBXGroup;
 			children = (
+				C37A74FC20D5BEC500719AAF /* model */,
 				C33F31F320C205C400626E0C /* viewController */,
 				C33F31F220C205AE00626E0C /* storyboard */,
 				C3F04179208A5CF000A9528B /* Assets.xcassets */,
@@ -260,6 +275,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -270,6 +286,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -284,13 +301,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F04175208A5CEF00A9528B /* huskyPantry.swift in Sources */,
+				C37A74FE20D5C1CC00719AAF /* feedCellTableViewCell.swift in Sources */,
 				C3BCAAB420D259CD00A4A542 /* loginCheckViewController.swift in Sources */,
-				C34B550420BEFDC400AB75AB /* File.swift in Sources */,
+				C37A750220D5C9C000719AAF /* feedTableViewController.swift in Sources */,
 				C3A0C8AD20C0C9F000FD6213 /* controllerViewCell.swift in Sources */,
 				C3A0C8AB20C0C81F00FD6213 /* pow.swift in Sources */,
 				C3DD5F6120C4802E0042A258 /* LoginViewController.swift in Sources */,
 				C39964BB20BF2BCC008DB420 /* MapView.swift in Sources */,
 				C3F04171208A5CEF00A9528B /* AppDelegate.swift in Sources */,
+				C37A750020D5C4D000719AAF /* File.swift in Sources */,
 				C3F04173208A5CEF00A9528B /* contactUs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
