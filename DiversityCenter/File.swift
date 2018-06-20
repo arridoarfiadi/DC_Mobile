@@ -9,12 +9,38 @@
 import Foundation
 
 class Feed {
-    var json: [String : Any]
     var message: String?
-    var id: String?
-    init(json: [String:Any]){
-        self.json = json
-        self.message = json["message"] as? String
-        self.id = json["id"] as? String
+    var createdTime: String?
+    var description: String?
+    init(singleFeed: [String:Any]){
+        self.message = singleFeed["message"] as? String
+        self.createdTime = singleFeed["created_time"] as? String
+        self.description = singleFeed["description"] as? String
+    }
+    
+    func getTime() -> String{
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        let datePrint = DateFormatter()
+        datePrint.dateFormat = "dd MMMM yyyy"
+        let date = dateFormat.date(from: self.createdTime!)
+        return datePrint.string(from: date!)
+    }
+    
+    func getMessage() -> String{
+        if self.message != nil{
+            return self.message!
+        }
+        else{
+            return("Diversity Center shared a post")
+        }
+    }
+    func getDescription()-> String{
+        if self.description != nil{
+            return self.description!
+        }
+        else{
+            return(" ")
+        }
     }
 }

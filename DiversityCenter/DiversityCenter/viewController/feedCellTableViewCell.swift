@@ -12,6 +12,16 @@ class feedCellTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var date: UILabel!
+    
+    
+    var postFeed: Feed!{
+        didSet{
+            self.message.text = postFeed.getMessage()
+            self.date.text = postFeed.getTime()
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

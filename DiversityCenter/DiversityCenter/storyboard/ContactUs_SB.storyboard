@@ -29,25 +29,60 @@
         <!--Contact Us-->
         <scene sceneID="uGc-Q1-EaY">
             <objects>
-                <viewController id="rCS-1W-qac" sceneMemberID="viewController">
+                <viewController id="rCS-1W-qac" customClass="contactUs" customModule="DiversityCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tiO-kf-xHE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-OR-cjh">
+                                <rect key="frame" x="95" y="318" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="phone"/>
+                                <connections>
+                                    <action selector="callButton:" destination="rCS-1W-qac" eventType="touchUpInside" id="b37-jx-u2s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-Yr-J21">
+                                <rect key="frame" x="250" y="317" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="message"/>
+                                <connections>
+                                    <action selector="email:" destination="rCS-1W-qac" eventType="touchUpInside" id="oUo-Gt-5fT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fZh-xW-Nha"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contact Us" image="online_support" selectedImage="online_support" id="oWh-fb-Psn"/>
-                    <navigationItem key="navigationItem" id="FVp-hp-eWu">
-                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="rot-5r-iPW"/>
+                    <navigationItem key="navigationItem" title="Contact Us" id="FVp-hp-eWu">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="rot-5r-iPW">
+                            <connections>
+                                <action selector="signout:" destination="rCS-1W-qac" id="r6C-j8-LbL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="B75-4K-11k" kind="showDetail" identifier="signout" id="7KO-te-TlZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8H-Td-VsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="-171"/>
+            <point key="canvasLocation" x="1104.8" y="-171.36431784107947"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="xaF-Wv-9wc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="B75-4K-11k" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EzJ-9m-amY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1645" y="-441"/>
         </scene>
     </scenes>
     <resources>
+        <image name="message" width="30" height="30"/>
         <image name="online_support" width="30" height="30"/>
+        <image name="phone" width="30" height="30"/>
     </resources>
 </document>

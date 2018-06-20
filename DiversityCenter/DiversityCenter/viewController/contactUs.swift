@@ -8,9 +8,15 @@
 
 import UIKit
 import MessageUI
+import FBSDKLoginKit
 
 class contactUs: UIViewController {
 
+    @IBAction func signout(_ sender: UIBarButtonItem) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        self.performSegue(withIdentifier: "signout", sender: self)
+    }
     @IBAction func email(_ sender: Any) {
         let email = "uwbdiv@uw.edu"
         if let url = URL(string: "mailto:\(email)"){

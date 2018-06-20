@@ -29,43 +29,37 @@
         <!--Rooms-->
         <scene sceneID="Bkm-Oh-cAR">
             <objects>
-                <viewController id="8f6-cu-zH5" sceneMemberID="viewController">
+                <viewController id="8f6-cu-zH5" customClass="RoomsUiViewViewController" customModule="DiversityCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d4E-Pc-lgS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jeY-TA-d6F">
-                                <rect key="frame" x="87" y="312" width="201.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuT-Hk-uj6">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="jeY-TA-d6F" secondAttribute="centerY" id="BRD-6A-siu"/>
-                            <constraint firstItem="zuT-Hk-uj6" firstAttribute="top" secondItem="jeY-TA-d6F" secondAttribute="bottom" constant="8" symbolic="YES" id="K80-67-QP2"/>
-                            <constraint firstItem="zuT-Hk-uj6" firstAttribute="centerX" secondItem="jeY-TA-d6F" secondAttribute="centerX" id="YQM-PF-y4e"/>
-                            <constraint firstAttribute="centerX" secondItem="jeY-TA-d6F" secondAttribute="centerX" id="sdE-Xe-PPs"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MzV-Je-OVj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rooms" image="create_new" selectedImage="create_new" id="Ks6-Fp-Xgh"/>
-                    <navigationItem key="navigationItem" id="Ggy-wW-k7O">
-                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="OAN-XN-zug"/>
+                    <navigationItem key="navigationItem" title="Rooms" id="Ggy-wW-k7O">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="OAN-XN-zug">
+                            <connections>
+                                <action selector="signout:" destination="8f6-cu-zH5" id="OFC-LE-zVH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="KtS-zT-1GN" kind="showDetail" identifier="signout" id="aUS-Gm-bVy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="540-iH-m64" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="433" y="136"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="YYv-KU-bNt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="KtS-zT-1GN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FDc-Lq-kyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="-186"/>
         </scene>
     </scenes>
     <resources>

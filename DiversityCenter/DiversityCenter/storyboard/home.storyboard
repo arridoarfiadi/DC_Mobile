@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-615" y="-81"/>
         </scene>
-        <!--Feed Table View Controller-->
+        <!--News Feed-->
         <scene sceneID="mO6-uG-y7f">
             <objects>
                 <tableViewController id="JSz-79-y4c" customClass="feedTableViewController" customModule="DiversityCenter" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,6 +89,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="date" destination="up1-zC-Y2X" id="9od-Sy-vke"/>
                                     <outlet property="message" destination="pOh-PE-s4t" id="MrH-4O-bEE"/>
                                 </connections>
                             </tableViewCell>
@@ -101,26 +102,26 @@
                             <outlet property="delegate" destination="JSz-79-y4c" id="qR5-y8-qcH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yI3-qi-j3C">
+                    <navigationItem key="navigationItem" title="News Feed" id="yI3-qi-j3C">
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" id="bNC-l9-8BU">
                             <connections>
                                 <action selector="signout:" destination="JSz-79-y4c" id="0W8-dv-V6L"/>
-                                <segue destination="pml-xC-Buu" kind="showDetail" identifier="logout" id="w6A-Aa-AkY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="feedTable" destination="vI7-c8-nT6" id="49R-3U-5g8"/>
+                        <segue destination="pml-xC-Buu" kind="showDetail" identifier="signout" id="8eb-ds-5jz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lg-OG-qJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="-81.409295352323838"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Main-->
         <scene sceneID="fC9-gY-r5D">
             <objects>
-                <viewControllerPlaceholder id="pml-xC-Buu" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="pml-xC-Buu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUE-Vc-hIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857" y="-452"/>

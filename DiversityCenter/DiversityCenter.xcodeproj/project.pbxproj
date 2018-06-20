@@ -15,6 +15,7 @@
 		C37A74FE20D5C1CC00719AAF /* feedCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */; };
 		C37A750020D5C4D000719AAF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A74FF20D5C4D000719AAF /* File.swift */; };
 		C37A750220D5C9C000719AAF /* feedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A750120D5C9C000719AAF /* feedTableViewController.swift */; };
+		C37A750420D755F600719AAF /* RoomsUiViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A750320D755F600719AAF /* RoomsUiViewViewController.swift */; };
 		C39964BB20BF2BCC008DB420 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39964BA20BF2BCC008DB420 /* MapView.swift */; };
 		C3A0C8AB20C0C81F00FD6213 /* pow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A0C8AA20C0C81F00FD6213 /* pow.swift */; };
 		C3A0C8AD20C0C9F000FD6213 /* controllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A0C8AC20C0C9F000FD6213 /* controllerViewCell.swift */; };
@@ -53,6 +54,7 @@
 		C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCellTableViewCell.swift; sourceTree = "<group>"; };
 		C37A74FF20D5C4D000719AAF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C37A750120D5C9C000719AAF /* feedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedTableViewController.swift; sourceTree = "<group>"; };
+		C37A750320D755F600719AAF /* RoomsUiViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsUiViewViewController.swift; sourceTree = "<group>"; };
 		C39964BA20BF2BCC008DB420 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C3A0C8AA20C0C81F00FD6213 /* pow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pow.swift; sourceTree = "<group>"; };
 		C3A0C8AC20C0C9F000FD6213 /* controllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = controllerViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				C3A0C8AA20C0C81F00FD6213 /* pow.swift */,
 				C39964BA20BF2BCC008DB420 /* MapView.swift */,
 				C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */,
+				C37A750320D755F600719AAF /* RoomsUiViewViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				C39964BB20BF2BCC008DB420 /* MapView.swift in Sources */,
 				C3F04171208A5CEF00A9528B /* AppDelegate.swift in Sources */,
 				C37A750020D5C4D000719AAF /* File.swift in Sources */,
+				C37A750420D755F600719AAF /* RoomsUiViewViewController.swift in Sources */,
 				C3F04173208A5CEF00A9528B /* contactUs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
