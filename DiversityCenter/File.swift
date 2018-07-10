@@ -12,10 +12,13 @@ class Feed {
     var message: String?
     var createdTime: String?
     var description: String?
+    var link: String?
     init(singleFeed: [String:Any]){
         self.message = singleFeed["message"] as? String
         self.createdTime = singleFeed["created_time"] as? String
         self.description = singleFeed["description"] as? String
+        self.link = singleFeed["link"] as? String
+
     }
     
     func getTime() -> String{
@@ -28,11 +31,18 @@ class Feed {
     }
     
     func getMessage() -> String{
-        if self.message != nil{
+        if self.message != nil && self.description != nil{
+            return (self.message! + "\n" + self.description!)
+        }
+        else if self.message == nil && self.description != nil{
+            return("Diversity Center shared a post \n" + self.description!)
+            
+        }
+        else if self.message != nil && self.description == nil {
             return self.message!
         }
         else{
-            return("Diversity Center shared a post")
+            return("NOT")
         }
     }
     func getDescription()-> String{
@@ -42,5 +52,10 @@ class Feed {
         else{
             return(" ")
         }
+    }
+    
+    func getLink()-> String{
+        return self.link!
+        
     }
 }

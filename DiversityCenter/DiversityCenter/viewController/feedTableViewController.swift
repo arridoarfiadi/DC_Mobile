@@ -6,6 +6,7 @@
 //  Copyright © 2018 Arrido Arfiadi. All rights reserved.
 //
 
+import SafariServices
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
@@ -21,15 +22,20 @@ class feedTableViewController: UITableViewController {
     
     @IBOutlet var feedTable: UITableView!
     
+
+    
+    
     
     var feed : [Feed] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         feedTable.dataSource = self
         feedTable.delegate = self
         feedTable.showAnimatedGradientSkeleton()
         fetchFeed()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,7 +48,7 @@ class feedTableViewController: UITableViewController {
     }
 
     func fetchFeed(){
-        let parameter = ["fields": "message, created_time"]
+        let parameter = ["fields": "message, created_time, description, link"]
         FBSDKGraphRequest(graphPath:"487210354969549/posts?limit=100", parameters:parameter ).start { (connection, result, error) in
             if error != nil {
                 print(error)
@@ -53,7 +59,11 @@ class feedTableViewController: UITableViewController {
             
             for feed in data{
                 let test = Feed(singleFeed: feed as! [String : Any])
-                self.feed.append(test)
+                if test.getMessage() != "NOT"{
+                    self.feed.append(test)
+                }
+                
+                
                 
             }
             //self.feedTable.rowHeight = 300
@@ -71,5 +81,8 @@ class feedTableViewController: UITableViewController {
         cell.postFeed = feed[indexPath.row]
         return cell
     }
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let safari = SFSafariViewController(url: URL(string: feed[indexPath.row].link!)!)
+        self.present(safari, animated: true, completion: nil)
+    }
 }

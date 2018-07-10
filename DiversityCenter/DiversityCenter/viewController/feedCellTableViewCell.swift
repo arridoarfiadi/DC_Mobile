@@ -13,12 +13,14 @@ class feedCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var date: UILabel!
+    var link: String!
     
     
     var postFeed: Feed!{
         didSet{
             self.message.text = postFeed.getMessage()
             self.date.text = postFeed.getTime()
+            self.link = postFeed.getLink()
         }
     }
     

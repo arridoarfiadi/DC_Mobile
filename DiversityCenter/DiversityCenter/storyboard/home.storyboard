@@ -111,10 +111,27 @@
                     </navigationItem>
                     <connections>
                         <outlet property="feedTable" destination="vI7-c8-nT6" id="49R-3U-5g8"/>
+                        <outlet property="searchDisplayController" destination="JgX-fc-b6n" id="v58-Gk-zil"/>
                         <segue destination="pml-xC-Buu" kind="showDetail" identifier="signout" id="8eb-ds-5jz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lg-OG-qJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="NAa-9M-7WG">
+                    <connections>
+                        <outlet property="delegate" destination="JSz-79-y4c" id="d9f-ZC-d9h"/>
+                        <outlet property="searchContentsController" destination="JSz-79-y4c" id="gVO-Yz-87f"/>
+                        <outlet property="searchResultsDataSource" destination="JSz-79-y4c" id="SS3-8a-cFh"/>
+                        <outlet property="searchResultsDelegate" destination="JSz-79-y4c" id="A4U-zS-fxx"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="JgX-fc-b6n">
+                    <connections>
+                        <outlet property="delegate" destination="JSz-79-y4c" id="yEW-sc-TNp"/>
+                        <outlet property="searchContentsController" destination="JSz-79-y4c" id="0eu-am-eSv"/>
+                        <outlet property="searchResultsDataSource" destination="JSz-79-y4c" id="ZOI-zs-iuI"/>
+                        <outlet property="searchResultsDelegate" destination="JSz-79-y4c" id="xzP-pE-x0C"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="-81.409295352323838"/>
         </scene>

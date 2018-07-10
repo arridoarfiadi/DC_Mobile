@@ -12,6 +12,7 @@
 		C35B3CE620D082F300747066 /* Pantry_SB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CE520D082F300747066 /* Pantry_SB.storyboard */; };
 		C35B3CE820D0830400747066 /* POW_SB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CE720D0830400747066 /* POW_SB.storyboard */; };
 		C35B3CEA20D0831200747066 /* ContactUs_SB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B3CE920D0831200747066 /* ContactUs_SB.storyboard */; };
+		C366084020F433280065B053 /* resources_SB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C366083F20F433280065B053 /* resources_SB.storyboard */; };
 		C37A74FE20D5C1CC00719AAF /* feedCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */; };
 		C37A750020D5C4D000719AAF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A74FF20D5C4D000719AAF /* File.swift */; };
 		C37A750220D5C9C000719AAF /* feedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37A750120D5C9C000719AAF /* feedTableViewController.swift */; };
@@ -51,6 +52,7 @@
 		C35B3CE520D082F300747066 /* Pantry_SB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pantry_SB.storyboard; sourceTree = "<group>"; };
 		C35B3CE720D0830400747066 /* POW_SB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = POW_SB.storyboard; sourceTree = "<group>"; };
 		C35B3CE920D0831200747066 /* ContactUs_SB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactUs_SB.storyboard; sourceTree = "<group>"; };
+		C366083F20F433280065B053 /* resources_SB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = resources_SB.storyboard; sourceTree = "<group>"; };
 		C37A74FD20D5C1CC00719AAF /* feedCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCellTableViewCell.swift; sourceTree = "<group>"; };
 		C37A74FF20D5C4D000719AAF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C37A750120D5C9C000719AAF /* feedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedTableViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				C3F0417B208A5CF000A9528B /* LaunchScreen.storyboard */,
 				C35B3CDD20D0816300747066 /* home.storyboard */,
 				C35B3CDF20D082B200747066 /* rooms.storyboard */,
+				C366083F20F433280065B053 /* resources_SB.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			files = (
 				C35B3CDE20D0816300747066 /* home.storyboard in Resources */,
 				C3F0417D208A5CF000A9528B /* LaunchScreen.storyboard in Resources */,
+				C366084020F433280065B053 /* resources_SB.storyboard in Resources */,
 				C35B3CE820D0830400747066 /* POW_SB.storyboard in Resources */,
 				C3F0417A208A5CF000A9528B /* Assets.xcassets in Resources */,
 				C35B3CE020D082B200747066 /* rooms.storyboard in Resources */,
