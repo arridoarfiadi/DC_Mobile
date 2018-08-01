@@ -9,6 +9,7 @@
 import Foundation
 
 class Feed {
+    let tempLink: String = "https://www.facebook.com/diversitycenteruwb/"
     var message: String?
     var createdTime: String?
     var description: String?
@@ -55,7 +56,16 @@ class Feed {
     }
     
     func getLink()-> String{
-        return self.link!
+        if let test = self.link{
+            
+            return self.link!
+            
+        }
+        else{
+            
+            return tempLink
+        }
+        
         
     }
 }

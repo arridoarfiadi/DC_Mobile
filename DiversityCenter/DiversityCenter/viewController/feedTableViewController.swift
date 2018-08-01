@@ -82,7 +82,8 @@ class feedTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let safari = SFSafariViewController(url: URL(string: feed[indexPath.row].link!)!)
+        
+        let safari = SFSafariViewController(url: URL(string: feed[indexPath.row].getLink())!)
         self.present(safari, animated: true, completion: nil)
     }
 }
