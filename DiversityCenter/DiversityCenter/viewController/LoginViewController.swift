@@ -8,14 +8,15 @@
 
 import UIKit
 import FBSDKLoginKit
+import SVProgressHUD
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
-    @IBOutlet weak var welcome: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         //things to do after button is clicked
+        SVProgressHUD.show()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -40,12 +41,12 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         //get first and last name
         let parameters = ["fields": "first_name,last_name, picture.type(large)"]
         FBSDKGraphRequest(graphPath:"me", parameters: parameters).start { (connection, result, error) in
-            let resultNew = result as? [String:Any]
-            let name = resultNew!["first_name"]  as! String
-            let last = resultNew!["last_name"]  as! String
-            self.nameLabel.text = name + " " + last
-            self.nameLabel.isHidden = false
-            self.welcome.isHidden = false
+            //let resultNew = result as? [String:Any]
+            //let name = resultNew!["first_name"]  as! String
+            //let last = resultNew!["last_name"]  as! String
+            //self.nameLabel.text = name + " " + last
+            //self.nameLabel.isHidden = false
+            //self.welcome.isHidden = false
             
         }
         
@@ -57,15 +58,4 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -46,19 +46,19 @@ class Feed {
             return("NOT")
         }
     }
-    func getDescription()-> String{
-        if self.description != nil{
-            return self.description!
-        }
-        else{
-            return(" ")
-        }
-    }
+//    func getDescription()-> String{
+//        if let descriptionMessage = self.description{
+//            return descriptionMessage
+//        }
+//        else{
+//            return(" ")
+//        }
+//    }
     
     func getLink()-> String{
         if let test = self.link{
             
-            return self.link!
+            return test
             
         }
         else{

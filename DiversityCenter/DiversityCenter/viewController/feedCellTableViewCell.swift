@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class feedCellTableViewCell: UITableViewCell {
+class feedCellTableViewCell: SwipeTableViewCell {
 
 
     @IBOutlet weak var message: UILabel!

@@ -96,18 +96,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="University-of-Washington-Bothell-3" translatesAutoresizingMaskIntoConstraints="NO" id="zkm-gK-MLG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-uK-Ir8">
-                                <rect key="frame" x="129" y="137" width="116" height="29"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Welcome," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLD-b7-kgY">
-                                <rect key="frame" x="149" y="108" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-SF-th8">
                                 <rect key="frame" x="163" y="586" width="48" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
@@ -119,8 +107,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zkm-gK-MLG" secondAttribute="trailing" id="24Q-7j-9wt"/>
-                            <constraint firstItem="zkm-gK-MLG" firstAttribute="centerX" secondItem="ryh-uK-Ir8" secondAttribute="centerX" id="Dlf-qq-wrL"/>
-                            <constraint firstItem="zkm-gK-MLG" firstAttribute="centerX" secondItem="wLD-b7-kgY" secondAttribute="centerX" id="NRP-gx-Qil"/>
                             <constraint firstItem="zkm-gK-MLG" firstAttribute="bottom" secondItem="Uy1-Wv-STw" secondAttribute="top" id="RQ1-dx-sxt"/>
                             <constraint firstItem="zkm-gK-MLG" firstAttribute="leading" secondItem="Li6-67-mRa" secondAttribute="leading" id="TEO-0Q-8aK"/>
                             <constraint firstItem="zkm-gK-MLG" firstAttribute="top" secondItem="Li6-67-mRa" secondAttribute="top" id="XDy-Gn-UBc"/>
@@ -129,8 +115,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="QnC-Sh-euk"/>
                     <connections>
-                        <outlet property="nameLabel" destination="ryh-uK-Ir8" id="ZQI-Vi-5sw"/>
-                        <outlet property="welcome" destination="wLD-b7-kgY" id="yet-qA-Y4H"/>
                         <segue destination="49e-Tb-3d3" kind="showDetail" identifier="lobby" animates="NO" id="Ox3-ol-gGd"/>
                     </connections>
                 </viewController>
@@ -142,17 +126,18 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.0052876120177628603" green="0.0044308301844048137" blue="0.0067814086294416542" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.29411764705882354" green="0.1803921568627451" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.29411764705882354" green="0.1803921568627451" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.27058823529411763" green="0.17254901960784313" blue="0.4392156862745098" alpha="0.94539276541095896" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.71764705882352942" green="0.6470588235294118" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" red="0.66075111040609136" green="0.63942933969209925" blue="0.64863182395950503" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>

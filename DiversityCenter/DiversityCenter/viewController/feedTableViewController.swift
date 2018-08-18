@@ -11,8 +11,11 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import SkeletonView
+import ChameleonFramework
+import SwipeCellKit
 
-class feedTableViewController: UITableViewController {
+
+class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate {
 
     @IBAction func signout(_ sender: UIBarButtonItem) {
         let loginManager = FBSDKLoginManager()
@@ -20,38 +23,33 @@ class feedTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "signout", sender: self)
     }
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var feedTable: UITableView!
-    
-
-    
-    
-    
     var feed : [Feed] = []
+    var feedSearch: [Feed] = []
+    var inSearch: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        feedTable.dataSource = self
-        feedTable.delegate = self
+        tableView.separatorStyle = .none
         feedTable.showAnimatedGradientSkeleton()
         fetchFeed()
+        searchBar.delegate = self
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if inSearch{
+            return feedSearch.count
+        }
         return feed.count
     }
 
     func fetchFeed(){
         let parameter = ["fields": "message, created_time, description, link"]
         FBSDKGraphRequest(graphPath:"487210354969549/posts?limit=100", parameters:parameter ).start { (connection, result, error) in
-            if error != nil {
-                print(error)
+            if let errorMessage = error {
+                print(errorMessage)
                 return
             }
             let resultNew = result as? [String:Any]
@@ -62,9 +60,6 @@ class feedTableViewController: UITableViewController {
                 if test.getMessage() != "NOT"{
                     self.feed.append(test)
                 }
-                
-                
-                
             }
             //self.feedTable.rowHeight = 300
             //self.feedTable.estimatedRowHeight = 300
@@ -78,12 +73,61 @@ class feedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! feedCellTableViewCell
-        cell.postFeed = feed[indexPath.row]
+        if inSearch{
+            cell.postFeed = feedSearch[indexPath.row]
+        }
+        else{
+            cell.postFeed = feed[indexPath.row]
+        }
+        
+        //cell.backgroundColor = UIColor(hexString: "4A3878")?.darken(byPercentage: (CGFloat(indexPath.row) / CGFloat(feed.count)))
+        cell.backgroundColor = .white
+        cell.delegate = self
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let safari = SFSafariViewController(url: URL(string: feed[indexPath.row].getLink())!)
+        safari.modalPresentationStyle = .overFullScreen
         self.present(safari, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .default, title: "Favorites") { action, indexPath in
+            // handle action by updating model with deletion
+            
+        }
+        // customize the action appearance
+        deleteAction.backgroundColor = UIColor(hexString: "b7a57a")
+        deleteAction.image = UIImage(named: "literature")
+        deleteAction.textColor = .black
+        
+       
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .selection
+        options.transitionStyle = .reveal
+        return options
+    }
+}
+
+extension feedTableViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count != 0{
+            feedSearch = feed.filter({ return ($0.getMessage().contains(searchBar.text!))})
+            inSearch = true
+            tableView.reloadData()
+        }
+        else {
+            inSearch = false
+            tableView.reloadData()
+        }
+    }
+    
 }

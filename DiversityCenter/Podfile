@@ -9,6 +9,10 @@ target 'DiversityCenter' do
     pod 'FacebookCore'
     pod 'FacebookLogin'
     pod 'FacebookShare'
-pod "SkeletonView"
-pod 'FBSDKLoginKit'
+    pod "SkeletonView"
+    pod 'FBSDKLoginKit'
+    pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+    pod 'SVProgressHUD'
+    pod 'Firebase/Core'
+    pod 'SwipeCellKit'
 end
