@@ -15,4 +15,6 @@ target 'DiversityCenter' do
     pod 'SVProgressHUD'
     pod 'Firebase/Core'
     pod 'SwipeCellKit'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
 end

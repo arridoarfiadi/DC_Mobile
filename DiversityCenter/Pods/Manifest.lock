@@ -27,11 +27,17 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.35.0):
     - FBSDKCoreKit (~> 4.35.0)
+  - Firebase/Auth (5.6.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (= 5.0.3)
   - Firebase/Core (5.6.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.1.1)
   - Firebase/CoreOnly (5.6.0):
     - FirebaseCore (= 5.1.1)
+  - Firebase/Database (5.6.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.0.2)
   - FirebaseAnalytics (5.1.1):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.2)
@@ -41,8 +47,17 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - FirebaseAuth (5.0.3):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.0)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (5.1.1):
     - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseDatabase (5.0.2):
+    - FirebaseCore (~> 5.0)
+    - leveldb-library (~> 1.18)
   - FirebaseInstanceID (3.2.1):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.2)
@@ -68,6 +83,8 @@ PODS:
   - "GoogleUtilities/NSData+zlib (5.2.2)"
   - GoogleUtilities/Reachability (5.2.2):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.2.0)
+  - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -83,7 +100,9 @@ DEPENDENCIES:
   - FacebookLogin
   - FacebookShare
   - FBSDKLoginKit
+  - Firebase/Auth
   - Firebase/Core
+  - Firebase/Database
   - SkeletonView
   - SVProgressHUD
   - SwipeCellKit
@@ -99,10 +118,15 @@ SPEC REPOS:
     - FBSDKShareKit
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAuth
+    - FirebaseAuthInterop
     - FirebaseCore
+    - FirebaseDatabase
     - FirebaseInstanceID
     - GoogleAppMeasurement
     - GoogleUtilities
+    - GTMSessionFetcher
+    - leveldb-library
     - nanopb
     - SkeletonView
     - SVProgressHUD
@@ -128,15 +152,20 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 2ddbd7e6432023fff957af62e23a3671b84319f7
   Firebase: 75ea9e232eefa158c1049028030b8f661a2ccb62
   FirebaseAnalytics: 993577e91157feb40945abedd6ab346d8a4b6ac8
+  FirebaseAuth: 657a25e4be044d2d333663ebf515a861c5a59cd7
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: cb9ee75e0894def766167c95a4d5a14b1c138269
+  FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
   GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SkeletonView: 50f7a9b04e3a62bd0ae964859c19317fabaea367
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
 
-PODFILE CHECKSUM: 56dd4e7667ac5730cef9fa093e3ea6778a0c30e1
+PODFILE CHECKSUM: ffd20535bfd82e1c685ed27a7a98e7bab3598d06
 
 COCOAPODS: 1.5.3

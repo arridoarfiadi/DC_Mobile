@@ -96,8 +96,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="University-of-Washington-Bothell-3" translatesAutoresizingMaskIntoConstraints="NO" id="zkm-gK-MLG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-SF-th8">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-SF-th8">
                                 <rect key="frame" x="163" y="586" width="48" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Enter">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,7 +111,6 @@
                             <constraint firstItem="zkm-gK-MLG" firstAttribute="bottom" secondItem="Uy1-Wv-STw" secondAttribute="top" id="RQ1-dx-sxt"/>
                             <constraint firstItem="zkm-gK-MLG" firstAttribute="leading" secondItem="Li6-67-mRa" secondAttribute="leading" id="TEO-0Q-8aK"/>
                             <constraint firstItem="zkm-gK-MLG" firstAttribute="top" secondItem="Li6-67-mRa" secondAttribute="top" id="XDy-Gn-UBc"/>
-                            <constraint firstItem="zkm-gK-MLG" firstAttribute="centerX" secondItem="2Rq-SF-th8" secondAttribute="centerX" id="zte-RL-1rZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QnC-Sh-euk"/>
