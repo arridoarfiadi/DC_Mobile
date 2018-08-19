@@ -90,6 +90,11 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Realm (3.7.6):
+    - Realm/Headers (= 3.7.6)
+  - Realm/Headers (3.7.6)
+  - RealmSwift (3.7.6):
+    - Realm (= 3.7.6)
   - SkeletonView (1.4)
   - SVProgressHUD (2.2.5)
   - SwipeCellKit (2.4.3)
@@ -103,6 +108,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - RealmSwift
   - SkeletonView
   - SVProgressHUD
   - SwipeCellKit
@@ -128,6 +134,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - Realm
+    - RealmSwift
     - SkeletonView
     - SVProgressHUD
     - SwipeCellKit
@@ -162,10 +170,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
+  RealmSwift: 1fe08b4ebaeeaacf17f9ba0343f7b25c9fc31fa6
   SkeletonView: 50f7a9b04e3a62bd0ae964859c19317fabaea367
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
 
-PODFILE CHECKSUM: ffd20535bfd82e1c685ed27a7a98e7bab3598d06
+PODFILE CHECKSUM: ff7342ab44f14aef69864b4d8e93600193b6e8c6
 
 COCOAPODS: 1.5.3

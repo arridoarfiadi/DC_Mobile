@@ -13,38 +13,63 @@ import FBSDKLoginKit
 import SkeletonView
 import ChameleonFramework
 import SwipeCellKit
+import RealmSwift
+
 
 
 class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate {
 
+    //sign out button
     @IBAction func signout(_ sender: UIBarButtonItem) {
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
         self.performSegue(withIdentifier: "signout", sender: self)
     }
     
+    @IBAction func bookmarkButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "goToBookmark", sender: self)
+    }
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var feedTable: UITableView!
+    
+    
+    //Realm
+    let realm = try! Realm()
+    var bookmarkArray: Results<Feed>?
+    
+    
+    
+    
+    
+    //Setup arrays
     var feed : [Feed] = []
     var feedSearch: [Feed] = []
+    //Search bool
     var inSearch: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
-        feedTable.showAnimatedGradientSkeleton()
+        loadBookmarked()
+        setupUI()
         fetchFeed()
         searchBar.delegate = self
-        
+    }
+    
+    func setupUI(){
+        //All UI changes
+        //tableView.separatorStyle = .none
+        feedTable.showAnimatedGradientSkeleton()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //number of rows
         if inSearch{
             return feedSearch.count
         }
         return feed.count
     }
-
+    
+    //fecthing from facebook graph api
     func fetchFeed(){
         let parameter = ["fields": "message, created_time, description, link"]
         FBSDKGraphRequest(graphPath:"487210354969549/posts?limit=100", parameters:parameter ).start { (connection, result, error) in
@@ -72,6 +97,7 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //Setting up each cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! feedCellTableViewCell
         if inSearch{
             cell.postFeed = feedSearch[indexPath.row]
@@ -86,41 +112,83 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //when clicking on a cell
         let safari = SFSafariViewController(url: URL(string: feed[indexPath.row].getLink())!)
         safari.modalPresentationStyle = .overFullScreen
         self.present(safari, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    //when swiping on a cell
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let deleteAction = SwipeAction(style: .default, title: "Favorites") { action, indexPath in
+        let bookmarkAction = SwipeAction(style: .default, title: "Favorites") { action, indexPath in
             // handle action by updating model with deletion
+            self.saveBookmark(feed: self.feed[indexPath.row])
             
         }
         // customize the action appearance
-        deleteAction.backgroundColor = UIColor(hexString: "b7a57a")
-        deleteAction.image = UIImage(named: "literature")
-        deleteAction.textColor = .black
+        bookmarkAction.backgroundColor = UIColor(hexString: "b7a57a")
+        bookmarkAction.image = UIImage(named: "literature")
+        bookmarkAction.textColor = .black
         
        
-        return [deleteAction]
+        return [bookmarkAction]
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        //slide option
         var options = SwipeOptions()
         options.expansionStyle = .selection
         options.transitionStyle = .reveal
         return options
     }
+    
+    
+    func saveBookmark(feed: Feed){
+        let check = bookmarkArray?.filter("message == %@", feed.getMessage())
+        
+        if (check?.count)! > 0 {
+            print("duplicate")
+        }
+        else{
+            print("new")
+            do{
+                
+                //try context.save() //CoreData
+                try realm.write {
+                    realm.add(feed)
+                    let alert = UIAlertController(title: nil, message: "Added", preferredStyle: .alert)
+                    present(alert,animated: true,completion: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
+            }
+            catch{
+                print("Save Error")
+            }
+        }
+        
+        //print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+        
+        feedTable.reloadData()
+    }
+    func loadBookmarked(){
+        bookmarkArray = realm.objects(Feed.self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! bookmarkTableViewController
+        destination.bookmarkArray = bookmarkArray
+    }
 }
 
 extension feedTableViewController: UISearchBarDelegate{
+    //Changes feed based on search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count != 0{
-            feedSearch = feed.filter({ return ($0.getMessage().contains(searchBar.text!))})
+            feedSearch = feed.filter({ return ($0.getMessage().lowercased().contains(searchBar.text!.lowercased()))})
             inSearch = true
             tableView.reloadData()
         }

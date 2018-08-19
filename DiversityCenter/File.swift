@@ -7,20 +7,24 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Feed {
+class Feed: Object {
     let tempLink: String = "https://www.facebook.com/diversitycenteruwb/"
-    var message: String?
-    var createdTime: String?
-    var description: String?
-    var link: String?
-    init(singleFeed: [String:Any]){
+    @objc dynamic var message: String?
+    @objc dynamic var createdTime: String?
+    @objc dynamic var descriptionFeed: String?
+    @objc dynamic var link: String?
+    convenience init(singleFeed: [String:Any]){
+        self.init()
         self.message = singleFeed["message"] as? String
         self.createdTime = singleFeed["created_time"] as? String
-        self.description = singleFeed["description"] as? String
+        self.descriptionFeed = singleFeed["description"] as? String
         self.link = singleFeed["link"] as? String
 
     }
+    
+
     
     func getTime() -> String{
         let dateFormat = DateFormatter()
@@ -32,14 +36,14 @@ class Feed {
     }
     
     func getMessage() -> String{
-        if self.message != nil && self.description != nil{
-            return (self.message! + "\n" + self.description!)
+        if self.message != nil && self.descriptionFeed != nil{
+            return (self.message! + "\n" + self.descriptionFeed!)
         }
-        else if self.message == nil && self.description != nil{
-            return("Diversity Center shared a post \n" + self.description!)
+        else if self.message == nil && self.descriptionFeed != nil{
+            return("Diversity Center shared a post \n" + self.descriptionFeed!)
             
         }
-        else if self.message != nil && self.description == nil {
+        else if self.message != nil && self.descriptionFeed == nil {
             return self.message!
         }
         else{

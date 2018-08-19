@@ -34,7 +34,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZo-yX-aaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-358" y="-81"/>
+            <point key="canvasLocation" x="-577" y="-81"/>
         </scene>
         <!--News Feed-->
         <scene sceneID="mO6-uG-y7f">
@@ -44,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Seach Feed" id="Q88-BY-IBL">
+                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" placeholder="Seach Feed" id="Q88-BY-IBL">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" red="0.26666666666666666" green="0.14901960784313725" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -120,7 +120,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News Feed" id="yI3-qi-j3C">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="WGJ-Ih-DOH"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="WGJ-Ih-DOH">
+                            <connections>
+                                <action selector="bookmarkButton:" destination="JSz-79-y4c" id="aOr-8f-GDZ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" id="bNC-l9-8BU">
                             <connections>
                                 <action selector="signout:" destination="JSz-79-y4c" id="0W8-dv-V6L"/>
@@ -130,27 +134,11 @@
                     <connections>
                         <outlet property="feedTable" destination="vI7-c8-nT6" id="49R-3U-5g8"/>
                         <outlet property="searchBar" destination="Q88-BY-IBL" id="M1K-7W-sKc"/>
-                        <outlet property="searchDisplayController" destination="JgX-fc-b6n" id="v58-Gk-zil"/>
                         <segue destination="pml-xC-Buu" kind="showDetail" identifier="signout" id="8eb-ds-5jz"/>
+                        <segue destination="V3Z-Ux-eXv" kind="show" identifier="goToBookmark" id="9aj-Lr-DgZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lg-OG-qJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="NAa-9M-7WG">
-                    <connections>
-                        <outlet property="delegate" destination="JSz-79-y4c" id="d9f-ZC-d9h"/>
-                        <outlet property="searchContentsController" destination="JSz-79-y4c" id="gVO-Yz-87f"/>
-                        <outlet property="searchResultsDataSource" destination="JSz-79-y4c" id="SS3-8a-cFh"/>
-                        <outlet property="searchResultsDelegate" destination="JSz-79-y4c" id="A4U-zS-fxx"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="JgX-fc-b6n">
-                    <connections>
-                        <outlet property="delegate" destination="JSz-79-y4c" id="yEW-sc-TNp"/>
-                        <outlet property="searchContentsController" destination="JSz-79-y4c" id="0eu-am-eSv"/>
-                        <outlet property="searchResultsDataSource" destination="JSz-79-y4c" id="ZOI-zs-iuI"/>
-                        <outlet property="searchResultsDelegate" destination="JSz-79-y4c" id="xzP-pE-x0C"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="-81.409295352323838"/>
         </scene>
@@ -161,6 +149,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUE-Vc-hIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="824" y="-461"/>
+        </scene>
+        <!--Bookmark-->
+        <scene sceneID="dZk-aC-kxm">
+            <objects>
+                <tableViewController title="Bookmark" id="V3Z-Ux-eXv" customClass="bookmarkTableViewController" customModule="DiversityCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Guw-qk-l8N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kM5-Ac-zFh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kM5-Ac-zFh" id="aGV-Ud-BVl">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="V3Z-Ux-eXv" id="Duf-To-eYA"/>
+                            <outlet property="delegate" destination="V3Z-Ux-eXv" id="bKQ-yM-Gsr"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsN-we-GDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="-81"/>
         </scene>
     </scenes>
     <resources>

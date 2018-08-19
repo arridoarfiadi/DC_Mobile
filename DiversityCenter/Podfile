@@ -17,4 +17,6 @@ target 'DiversityCenter' do
     pod 'SwipeCellKit'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
+    pod 'RealmSwift'
+
 end

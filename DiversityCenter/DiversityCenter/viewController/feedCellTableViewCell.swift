@@ -12,11 +12,12 @@ import SwipeCellKit
 class feedCellTableViewCell: SwipeTableViewCell {
 
 
-    @IBOutlet weak var message: UILabel!
-    @IBOutlet weak var date: UILabel!
+
     var link: String!
     
     
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var message: UILabel!
     var postFeed: Feed!{
         didSet{
             self.message.text = postFeed.getMessage()
