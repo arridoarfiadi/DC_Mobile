@@ -15,6 +15,7 @@ class Feed: Object {
     @objc dynamic var createdTime: String?
     @objc dynamic var descriptionFeed: String?
     @objc dynamic var link: String?
+
     convenience init(singleFeed: [String:Any]){
         self.init()
         self.message = singleFeed["message"] as? String
@@ -23,7 +24,12 @@ class Feed: Object {
         self.link = singleFeed["link"] as? String
 
     }
-    
+    convenience init(message: String, createdTime: String, link: String) {
+        self.init()
+        self.message = message
+        self.createdTime = createdTime
+        self.link = link
+    }
 
     
     func getTime() -> String{

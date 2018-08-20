@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-//
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 50/255, green: 16/255, blue: 102/255, alpha: 1)
-//        UINavigationBar.appearance().tintColor = UIColor.white
-//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-//        application.statusBarStyle = .lightContent
+
+        UINavigationBar.appearance().barTintColor = UIColor(hexString: "4B2E83")
+        UINavigationBar.appearance().tintColor = UIColor.white
+       UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
+        
         // Override point for customization after application launch.
         
         

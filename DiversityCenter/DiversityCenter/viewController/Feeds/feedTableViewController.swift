@@ -122,34 +122,48 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
     //when swiping on a cell
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
-        
-        let bookmarkAction = SwipeAction(style: .default, title: "Favorites") { action, indexPath in
-            // handle action by updating model with deletion
-            self.saveBookmark(feed: self.feed[indexPath.row])
-            
+        let check = checkBookmark(item: feed[indexPath.row].getMessage())
+        if check {
+            let deleteAction = SwipeAction(style: .destructive, title: "Remove") { action, indexPath in
+                // handle action by updating model with deletion
+                self.deleteBookmarked(indexPath: indexPath)
+                
+                
+            }
+            // customize the action appearance
+            deleteAction.backgroundColor = UIColor.red
+            deleteAction.image = UIImage(named: "literature")
+            deleteAction.textColor = .black
+            return [deleteAction]
         }
-        // customize the action appearance
-        bookmarkAction.backgroundColor = UIColor(hexString: "b7a57a")
-        bookmarkAction.image = UIImage(named: "literature")
-        bookmarkAction.textColor = .black
+        else{
+            let bookmarkAction = SwipeAction(style: .default, title: "Bookmark") { action, indexPath in
+                // handle action by updating model with deletion
+                self.saveBookmark(feed: self.feed[indexPath.row])
+                
+            }
+            // customize the action appearance
+            bookmarkAction.backgroundColor = UIColor(hexString: "b7a57a")
+            bookmarkAction.image = UIImage(named: "literature")
+            bookmarkAction.textColor = .black
+            return [bookmarkAction]
+        }
         
-       
-        return [bookmarkAction]
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
         //slide option
         var options = SwipeOptions()
-        options.expansionStyle = .selection
+        //options.expansionStyle = .selection
         options.transitionStyle = .reveal
         return options
     }
     
     
     func saveBookmark(feed: Feed){
-        let check = bookmarkArray?.filter("message == %@", feed.getMessage())
+        let check = checkBookmark(item: feed.getMessage())
         
-        if (check?.count)! > 0 {
+        if check {
             print("duplicate")
         }
         else{
@@ -158,7 +172,8 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
                 
                 //try context.save() //CoreData
                 try realm.write {
-                    realm.add(feed)
+                    
+                    realm.add(Feed(message: feed.getMessage(), createdTime: feed.getTime(), link: feed.getLink()))
                     let alert = UIAlertController(title: nil, message: "Added", preferredStyle: .alert)
                     present(alert,animated: true,completion: {
                         self.dismiss(animated: true, completion: nil)
@@ -169,10 +184,7 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
                 print("Save Error")
             }
         }
-        
         //print(Realm.Configuration.defaultConfiguration.fileURL)
-        
-        
         feedTable.reloadData()
     }
     func loadBookmarked(){
@@ -182,10 +194,39 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
         let destination = segue.destination as! bookmarkTableViewController
         destination.bookmarkArray = bookmarkArray
     }
+    
+    func deleteBookmarked(indexPath: IndexPath) {
+        
+        let feedDelete = bookmarkArray?.filter("message == %@", feed[indexPath.row].getMessage()).first
+        //let index = bookmarkArray?.index(of: feedDelete)
+        if let delete = feedDelete{
+            do{
+                
+                try self.realm.write {
+                    self.realm.delete(delete) //delete at that row
+                    
+                }
+            } catch{
+                print("Error updating")
+            }
+            tableView.reloadData()
+        
+        }
+    }
+    func checkBookmark(item: String) -> Bool{
+        let check = bookmarkArray?.filter("message == %@", item)
+        if (check?.count)! > 0 {
+            return true
+        }
+        else{
+            return false
+        }
+    }
 }
 
 extension feedTableViewController: UISearchBarDelegate{
     //Changes feed based on search bar
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count != 0{
             feedSearch = feed.filter({ return ($0.getMessage().lowercased().contains(searchBar.text!.lowercased()))})
