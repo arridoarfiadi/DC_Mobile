@@ -18,6 +18,7 @@ class feedCellTableViewCell: SwipeTableViewCell {
     
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var bookmarkImage: UIImageView!
     var postFeed: Feed!{
         didSet{
             self.message.text = postFeed.getMessage()

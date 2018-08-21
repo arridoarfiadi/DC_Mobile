@@ -78,7 +78,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a feed posted by the Diversity Center Facebook page" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOh-PE-s4t">
-                                            <rect key="frame" x="15" y="57" width="345" height="349.5"/>
+                                            <rect key="frame" x="15" y="57" width="345" height="350"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -88,17 +88,27 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="literature" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-US-vKf">
+                                            <rect key="frame" x="152" y="39" width="14" height="4"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="14" id="h4R-Ow-e9Q"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="uFH-TK-KfR" firstAttribute="top" secondItem="bpq-8n-yTd" secondAttribute="topMargin" id="0RX-pw-Mrn"/>
                                         <constraint firstItem="Tz6-4m-UOb" firstAttribute="leading" secondItem="uFH-TK-KfR" secondAttribute="trailing" constant="8" symbolic="YES" id="3EW-zx-i0G"/>
                                         <constraint firstItem="pOh-PE-s4t" firstAttribute="top" secondItem="up1-zC-Y2X" secondAttribute="bottom" constant="8" symbolic="YES" id="4LZ-Y6-ItW"/>
+                                        <constraint firstItem="pOh-PE-s4t" firstAttribute="top" secondItem="y9W-US-vKf" secondAttribute="bottom" constant="14" id="8YD-Rz-y3C"/>
                                         <constraint firstItem="uFH-TK-KfR" firstAttribute="top" secondItem="Tz6-4m-UOb" secondAttribute="top" id="NV9-g0-m5L"/>
+                                        <constraint firstItem="y9W-US-vKf" firstAttribute="top" secondItem="Tz6-4m-UOb" secondAttribute="bottom" constant="7" id="O0R-Cc-hi8"/>
                                         <constraint firstItem="uFH-TK-KfR" firstAttribute="leading" secondItem="bpq-8n-yTd" secondAttribute="leadingMargin" constant="-1" id="SUN-fH-YC8"/>
+                                        <constraint firstItem="y9W-US-vKf" firstAttribute="leading" secondItem="up1-zC-Y2X" secondAttribute="trailing" constant="8" symbolic="YES" id="W3e-mr-GuK"/>
                                         <constraint firstItem="up1-zC-Y2X" firstAttribute="leading" secondItem="uFH-TK-KfR" secondAttribute="trailing" constant="8" symbolic="YES" id="YBo-eD-3Ml"/>
                                         <constraint firstAttribute="bottom" secondItem="pOh-PE-s4t" secondAttribute="bottom" constant="20" id="cNz-g3-mvP"/>
                                         <constraint firstItem="uFH-TK-KfR" firstAttribute="leading" secondItem="pOh-PE-s4t" secondAttribute="leading" id="gLZ-dX-9LS"/>
                                         <constraint firstItem="pOh-PE-s4t" firstAttribute="centerX" secondItem="bpq-8n-yTd" secondAttribute="centerX" id="jVm-nn-GfF"/>
+                                        <constraint firstItem="y9W-US-vKf" firstAttribute="centerY" secondItem="up1-zC-Y2X" secondAttribute="centerY" id="qfe-So-Qcq"/>
                                         <constraint firstItem="pOh-PE-s4t" firstAttribute="top" secondItem="uFH-TK-KfR" secondAttribute="bottom" constant="3" id="rq1-Sh-3kI"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -106,6 +116,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="bookmarkImage" destination="y9W-US-vKf" id="9wb-ey-5cA"/>
                                     <outlet property="date" destination="up1-zC-Y2X" id="9od-Sy-vke"/>
                                     <outlet property="message" destination="pOh-PE-s4t" id="MrH-4O-bEE"/>
                                 </connections>
@@ -158,9 +169,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Seach Feed" id="MKZ-MP-dZ5">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="0.2666666667" green="0.14901960780000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kM5-Ac-zFh">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kM5-Ac-zFh" id="aGV-Ud-BVl">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -173,6 +190,9 @@
                             <outlet property="delegate" destination="V3Z-Ux-eXv" id="bKQ-yM-Gsr"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="MKZ-MP-dZ5" id="Lns-8O-g1d"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fsN-we-GDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,6 +201,7 @@
     </scenes>
     <resources>
         <image name="home" width="30" height="30"/>
+        <image name="literature" width="30" height="30"/>
         <image name="logo" width="741" height="741"/>
     </resources>
 </document>

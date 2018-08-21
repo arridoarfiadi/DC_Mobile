@@ -19,6 +19,7 @@ import RealmSwift
 
 class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate {
 
+
     //sign out button
     @IBAction func signout(_ sender: UIBarButtonItem) {
         let loginManager = FBSDKLoginManager()
@@ -107,6 +108,7 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
         }
         
         //cell.backgroundColor = UIColor(hexString: "4A3878")?.darken(byPercentage: (CGFloat(indexPath.row) / CGFloat(feed.count)))
+        cell.bookmarkImage.isHidden = checkBookmark(item: feed[indexPath.row].getMessage()) ? false : true
         cell.backgroundColor = .white
         cell.delegate = self
         return cell
@@ -173,7 +175,7 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
                 //try context.save() //CoreData
                 try realm.write {
                     
-                    realm.add(Feed(message: feed.getMessage(), createdTime: feed.getTime(), link: feed.getLink()))
+                    realm.add(Feed(message: feed.getMessage(), createdTime: feed.createdTime!, link: feed.getLink()))
                     let alert = UIAlertController(title: nil, message: "Added", preferredStyle: .alert)
                     present(alert,animated: true,completion: {
                         self.dismiss(animated: true, completion: nil)
@@ -204,6 +206,11 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
                 
                 try self.realm.write {
                     self.realm.delete(delete) //delete at that row
+                    let alert = UIAlertController(title: nil, message: "Removed", preferredStyle: .alert)
+                    present(alert,animated: true,completion: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                    
                     
                 }
             } catch{
