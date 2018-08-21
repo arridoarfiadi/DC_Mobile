@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import SVProgressHUD
+import Firebase
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         //things to do after log out button is clicked
+        
     }
     
     
@@ -54,8 +56,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidAppear(_ animated: Bool) {
         if (FBSDKAccessToken.current()) != nil{
             //goes to home screen if logged in
-            self.performSegue(withIdentifier: "lobby", sender: self)
+            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+                if let error = error {
+                    // ...
+                    return
+                }
+                // User is signed in
+                // ...
+                self.performSegue(withIdentifier: "lobby", sender: self)
+            }
+            
         }
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
+    }
 }

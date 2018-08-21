@@ -40,23 +40,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="grG-Yd-i18">
-                                <rect key="frame" x="0.0" y="56" width="375" height="498"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Iteam" translucent="NO" id="sXE-ta-mx2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rri-Rw-uhk">
+                                        <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rri-Rw-uhk" id="8i5-mY-XV9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="sXE-ta-mx2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sXE-ta-mx2" firstAttribute="leading" secondItem="AU4-Io-mGU" secondAttribute="leading" id="AdU-oK-xy3"/>
-                            <constraint firstAttribute="trailing" secondItem="sXE-ta-mx2" secondAttribute="trailing" id="BDf-4O-Mbo"/>
-                            <constraint firstItem="sXE-ta-mx2" firstAttribute="trailing" secondItem="grG-Yd-i18" secondAttribute="trailing" id="Fv2-sw-5Rg"/>
-                            <constraint firstItem="sXE-ta-mx2" firstAttribute="top" secondItem="M3J-gV-eBq" secondAttribute="bottom" id="RIC-JF-Lms"/>
                             <constraint firstItem="grG-Yd-i18" firstAttribute="bottom" secondItem="XUX-dl-G9w" secondAttribute="top" id="Tem-tu-GPp"/>
-                            <constraint firstItem="sXE-ta-mx2" firstAttribute="leading" secondItem="grG-Yd-i18" secondAttribute="leading" id="Xhv-Gj-uAx"/>
-                            <constraint firstItem="sXE-ta-mx2" firstAttribute="bottom" secondItem="grG-Yd-i18" secondAttribute="top" id="mGl-tf-TJa"/>
+                            <constraint firstAttribute="trailing" secondItem="grG-Yd-i18" secondAttribute="trailing" id="UHM-dQ-Sex"/>
+                            <constraint firstItem="grG-Yd-i18" firstAttribute="leading" secondItem="AU4-Io-mGU" secondAttribute="leading" id="VxR-wl-ZI1"/>
+                            <constraint firstItem="grG-Yd-i18" firstAttribute="top" secondItem="M3J-gV-eBq" secondAttribute="bottom" id="dHK-OE-7go"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Husky Pantry" image="database" selectedImage="database" id="abj-ZR-f1F"/>

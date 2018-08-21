@@ -109,6 +109,7 @@ extension bookmarkTableViewController: UISearchBarDelegate{
         if searchBar.text?.count == 0{
             //reload when cancelled
             loadBookmarked()
+            searchBar.resignFirstResponder()
             tableView.reloadData()
         }
         else {
@@ -119,6 +120,14 @@ extension bookmarkTableViewController: UISearchBarDelegate{
             bookmarkArray = bookmarkArray?.filter("message CONTAINS[cd] %@", searchBar.text!.lowercased())
             tableView.reloadData()
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
 }

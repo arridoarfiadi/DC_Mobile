@@ -62,12 +62,12 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
         feedTable.showAnimatedGradientSkeleton()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //number of rows
-        if inSearch{
-            return feedSearch.count
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToBookmark" {
+            let destination = segue.destination as! bookmarkTableViewController
+            destination.bookmarkArray = bookmarkArray
         }
-        return feed.count
+        
     }
     
     //fecthing from facebook graph api
@@ -95,8 +95,17 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
             
         }
     }
-
     
+    
+    //MARK - Table View Data Source and Delegate
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //number of rows
+        if inSearch{
+            return feedSearch.count
+        }
+        return feed.count
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Setting up each cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! feedCellTableViewCell
@@ -120,6 +129,8 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
         self.present(safari, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
     
     //when swiping on a cell
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
@@ -162,6 +173,8 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
     }
     
     
+    //MARK - Bookmark Codoes
+    
     func saveBookmark(feed: Feed){
         let check = checkBookmark(item: feed.getMessage())
         
@@ -192,10 +205,7 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
     func loadBookmarked(){
         bookmarkArray = realm.objects(Feed.self)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! bookmarkTableViewController
-        destination.bookmarkArray = bookmarkArray
-    }
+    
     
     func deleteBookmarked(indexPath: IndexPath) {
         
@@ -231,6 +241,9 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
     }
 }
 
+
+
+//MARK - Search Delegate Extension
 extension feedTableViewController: UISearchBarDelegate{
     //Changes feed based on search bar
     
@@ -242,8 +255,17 @@ extension feedTableViewController: UISearchBarDelegate{
         }
         else {
             inSearch = false
+            searchBar.resignFirstResponder()
             tableView.reloadData()
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
 }

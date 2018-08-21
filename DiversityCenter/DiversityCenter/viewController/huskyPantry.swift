@@ -9,6 +9,8 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
+
 class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
     
     
@@ -19,6 +21,7 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     
+    var ref: DatabaseReference = Database.database().reference()
     
     
     @IBOutlet weak var search: UISearchBar!
@@ -26,8 +29,19 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     var inSearchMode = false
     
-    let itemName = ["Oatmeal", "Ramen", "Granola Bars", "Beans", "Cereal", "Protein Bars", "Mac and Cheese", "Chilli", "Sugar"]
-    let count = ["15", "10", "9", "8", "1", "2", "5", "20", "1"]
+    var itemName: [String] = []
+    var count: [String]  = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        inventoryTable.delegate = self
+        inventoryTable.dataSource = self
+        search.delegate = self
+        search.barTintColor = UIColor(hexString: "4B2E83")
+        getData()
+        
+        
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,21 +94,32 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     @IBOutlet weak var inventoryTable: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        inventoryTable.delegate = self
-        inventoryTable.dataSource = self
-        search.delegate = self
-        search.returnKeyType = UIReturnKeyType.done
-        
-        
-    }
+
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-        
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func getData(){
+        //retrieve from db
+        let pantryDB = ref.child("DCPantry")
+        pantryDB.observe(.childAdded) { (snapshot) in
+            let name = snapshot.key
+            let number = snapshot.value as! String
+            self.itemName.append(name)
+            self.count.append(number)
+            self.inventoryTable.reloadData()
         }
+        print(itemName)
+        
+
+    }
+
+}
 
 
 

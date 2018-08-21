@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import ChameleonFramework
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         
         // Override point for customization after application launch.
-        
+        FirebaseApp.configure()
         
         
         
