@@ -14,7 +14,7 @@ import SkeletonView
 import ChameleonFramework
 import SwipeCellKit
 import RealmSwift
-
+import SVProgressHUD
 
 
 class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate {
@@ -54,12 +54,28 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
         setupUI()
         fetchFeed()
         searchBar.delegate = self
+        
+        setRefresh()
+        
+    }
+    
+    func setRefresh(){
+        let refresh = UIRefreshControl()
+        refresh.tintColor = UIColor(hexString: "b7a57a")
+        refresh.attributedTitle = NSAttributedString(string: "Refreshing Feed")
+        refresh.addTarget(self, action: #selector(fetchFeed), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refresh
+        } else {
+            tableView.addSubview(refresh)
+        }
+        
     }
     
     func setupUI(){
         //All UI changes
         //tableView.separatorStyle = .none
-        feedTable.showAnimatedGradientSkeleton()
+        //feedTable.showAnimatedGradientSkeleton()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,27 +87,37 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
     }
     
     //fecthing from facebook graph api
-    func fetchFeed(){
+    @objc func fetchFeed(){
+        navigationController?.navigationBar.prefersLargeTitles = false
+        SVProgressHUD.show()
+        tableView.showGradientSkeleton()
+
         let parameter = ["fields": "message, created_time, description, link"]
         FBSDKGraphRequest(graphPath:"487210354969549/posts?limit=100", parameters:parameter ).start { (connection, result, error) in
-            if let errorMessage = error {
-                print(errorMessage)
-                return
-            }
-            let resultNew = result as? [String:Any]
-            let data = resultNew!["data"] as! [Any]
-            
-            for feed in data{
-                let test = Feed(singleFeed: feed as! [String : Any])
-                if test.getMessage() != "NOT"{
-                    self.feed.append(test)
+            DispatchQueue.main.async{
+                if let errorMessage = error {
+                    print(errorMessage)
+                    return
                 }
+                let resultNew = result as? [String:Any]
+                let data = resultNew!["data"] as! [Any]
+                
+                for feed in data{
+                    let test = Feed(singleFeed: feed as! [String : Any])
+                    if test.getMessage() != "NOT"{
+                        self.feed.append(test)
+                    }
+                }
+                
+                self.feedTable.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
+                SVProgressHUD.dismiss()
+                self.feedTable.hideSkeleton()
+                self.navigationController?.navigationBar.prefersLargeTitles = true
+                
             }
-            //self.feedTable.rowHeight = 300
-            //self.feedTable.estimatedRowHeight = 300
             
-            self.feedTable.reloadData()
-            self.feedTable.hideSkeleton()
+            
             
         }
     }
