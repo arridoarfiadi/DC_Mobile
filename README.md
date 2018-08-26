@@ -12,4 +12,4 @@ Pods installed (Cocoapods):
 * SVProgessHUD
 
 # Screenshot of Home Page
-![](https://github.com/arridoarfiadi/DCMobileProject/blob/master/HomeScreen.png)
+![](https://github.com/arridoarfiadi/DCMobileProject/blob/master/previewFeed.png)
