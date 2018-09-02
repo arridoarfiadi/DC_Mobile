@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Sx-ZP-IzR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="xEg-le-d74">
+            <objects>
+                <navigationController id="1Sx-ZP-IzR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="D98-RV-JGO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8f6-cu-zH5" kind="relationship" relationship="rootViewController" id="f3c-Lr-Reu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="riF-Ca-okz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="137"/>
+        </scene>
+        <!--Rooms-->
+        <scene sceneID="Bkm-Oh-cAR">
+            <objects>
+                <viewController id="8f6-cu-zH5" customClass="RoomsUiViewViewController" customModule="DiversityCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d4E-Pc-lgS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TUk-wh-kbS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="Tyg-Sk-nRy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ure-ym-OvQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                            <state key="normal" title="Reserve Room">
+                                                <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="reserveClicked:" destination="8f6-cu-zH5" eventType="touchUpInside" id="kaA-LU-V4q"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.29411764709999999" green="0.18039215689999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fFg-1N-5dj">
+                                        <rect key="frame" x="0.0" y="82" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fFg-1N-5dj" id="l2R-ks-ABZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TUk-wh-kbS" firstAttribute="leading" secondItem="MzV-Je-OVj" secondAttribute="leading" id="69G-uE-fiT"/>
+                            <constraint firstItem="TUk-wh-kbS" firstAttribute="trailing" secondItem="MzV-Je-OVj" secondAttribute="trailing" id="CpO-zR-Sc3"/>
+                            <constraint firstItem="TUk-wh-kbS" firstAttribute="top" secondItem="d4E-Pc-lgS" secondAttribute="topMargin" id="cCk-HX-qwv"/>
+                            <constraint firstItem="TUk-wh-kbS" firstAttribute="bottom" secondItem="d4E-Pc-lgS" secondAttribute="bottomMargin" id="m3K-rd-Tli"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MzV-Je-OVj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Rooms" image="create_new" selectedImage="create_new" id="Ks6-Fp-Xgh"/>
+                    <navigationItem key="navigationItem" title="Rooms" id="Ggy-wW-k7O">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="OAN-XN-zug">
+                            <connections>
+                                <action selector="signout:" destination="8f6-cu-zH5" id="OFC-LE-zVH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="TUk-wh-kbS" id="8nf-bg-TF0"/>
+                        <segue destination="KtS-zT-1GN" kind="showDetail" identifier="signout" id="aUS-Gm-bVy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="540-iH-m64" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="432.80000000000001" y="135.38230884557723"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="YYv-KU-bNt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="KtS-zT-1GN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FDc-Lq-kyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="-186"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="create_new" width="30" height="30"/>
+    </resources>
+</document>

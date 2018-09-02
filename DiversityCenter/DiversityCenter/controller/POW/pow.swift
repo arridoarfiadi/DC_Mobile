@@ -18,7 +18,7 @@ class pow: UIViewController, UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     let reuseIdentifier = "cell"
-    var religion = ["Islam", "Evangelical", "Buddhist","Sikh", "Hindu", "Jewish", "Episcopal","Greek Orthodox", "Salvation Army","Seventh Day Adventists","United Church of Christ", "United Methodist", "Unitarian Univeralist", "Roman Catholic", "Presbyterian", "Lutheran", "American Baptist", "Christian Science"]
+    var religion = ["Islam", "Buddhist","Sikh", "Hindu", "United Church of Christ", "Jewish", "Episcopal","Greek Orthodox", "Salvation Army","Seventh Day Adventists", "United Methodist", "Unitarian Univeralist", "Roman Catholic", "Presbyterian", "Lutheran", "American Baptist", "Christian Science", "Evangelical"]
     var currentSelectedGroup: IndexPath?
     
 
@@ -37,18 +37,13 @@ class pow: UIViewController, UICollectionViewDelegate, UICollectionViewDataSourc
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.label.text = self.religion[indexPath.item]
-        
-        
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
-        
-        
         return cell
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let cell = sender as? UICollectionViewCell,
             let indexPath = self.collectionView.indexPath(for: cell) {
     
@@ -56,6 +51,7 @@ class pow: UIViewController, UICollectionViewDelegate, UICollectionViewDataSourc
             //Now simply set the title property of vc
             vc.selected = indexPath.row
             vc.selectedReligion = self.religion[indexPath.item]
+            
         }
     }
 
@@ -63,23 +59,8 @@ class pow: UIViewController, UICollectionViewDelegate, UICollectionViewDataSourc
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

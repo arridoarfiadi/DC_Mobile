@@ -125,20 +125,11 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Nw-hk-NgQ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6R-AO-N7O">
-                                <rect key="frame" x="340" y="31" width="30" height="30"/>
-                                <state key="normal" image="home"/>
-                                <connections>
-                                    <action selector="back:" destination="tWW-xy-ZQx" eventType="touchUpInside" id="918-rE-wGC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="g6R-AO-N7O" firstAttribute="top" secondItem="7aE-96-dX1" secondAttribute="top" constant="31" id="6oA-Oj-E3d"/>
                             <constraint firstItem="3Nw-hk-NgQ" firstAttribute="bottom" secondItem="tsG-7o-9fQ" secondAttribute="bottom" id="GME-1V-LiG"/>
                             <constraint firstItem="3Nw-hk-NgQ" firstAttribute="leading" secondItem="7aE-96-dX1" secondAttribute="leading" id="Nzv-kH-iKw"/>
-                            <constraint firstItem="tsG-7o-9fQ" firstAttribute="trailing" secondItem="g6R-AO-N7O" secondAttribute="trailing" constant="5" id="X4H-oQ-MFl"/>
                             <constraint firstItem="3Nw-hk-NgQ" firstAttribute="top" secondItem="tsG-7o-9fQ" secondAttribute="top" id="Zxy-pP-Lcz"/>
                             <constraint firstAttribute="trailing" secondItem="3Nw-hk-NgQ" secondAttribute="trailing" id="mnz-rc-DiM"/>
                         </constraints>
@@ -155,7 +146,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="30" height="30"/>
         <image name="map_marker" width="30" height="30"/>
     </resources>
 </document>

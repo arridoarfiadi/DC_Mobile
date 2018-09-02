@@ -79,22 +79,26 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate 
         navigationController?.navigationBar.prefersLargeTitles = false
         SVProgressHUD.show()
         let pantryDB = ref.child("DCPantry")
+        //For refresh
+        itemName = []
+        count = []
         pantryDB.observe(.childAdded) { (snapshot) in
             let name = snapshot.key
             let number = snapshot.value as! String
             self.itemName.append(name)
             self.count.append(number)
-            
+
             self.inventoryTable.reloadData()
             self.inventoryTable.refreshControl?.endRefreshing()
             self.navigationController?.navigationBar.prefersLargeTitles = true
             SVProgressHUD.dismiss()
         }
-        print(itemName)
+        
         
 
     }
     func setRefresh(){
+        
         let refresh = UIRefreshControl()
         refresh.tintColor = UIColor(hexString: "b7a57a")
         refresh.attributedTitle = NSAttributedString(string: "Refreshing Inventory")

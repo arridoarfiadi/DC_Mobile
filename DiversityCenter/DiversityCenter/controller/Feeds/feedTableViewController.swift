@@ -93,10 +93,14 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
     
     //fecthing from facebook graph api
     @objc func fetchFeed(){
+        //for refresh
+        
+        
+        
         navigationController?.navigationBar.prefersLargeTitles = false
         SVProgressHUD.show()
         tableView.showGradientSkeleton()
-
+        feed = []
         let parameter = ["fields": "message, created_time, description, link"]
         FBSDKGraphRequest(graphPath:"487210354969549/posts?limit=100", parameters:parameter ).start { (connection, result, error) in
             DispatchQueue.main.async{
