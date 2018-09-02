@@ -124,12 +124,10 @@
 				C3F04170208A5CEF00A9528B /* AppDelegate.swift */,
 				C3EFA7EF212B6EED00B41A5E /* Login */,
 				C3EFA7EE212B6ED500B41A5E /* Feeds */,
+				C3C3F706213C8BC300D422D8 /* Rooms */,
 				C3EFA7F0212B6F1800B41A5E /* POW */,
 				C3F04174208A5CEF00A9528B /* huskyPantry.swift */,
 				C3F04172208A5CEF00A9528B /* contactUs.swift */,
-				C37A750320D755F600719AAF /* RoomsUiViewViewController.swift */,
-				C3DDAD9E213BA87F000A84BA /* roomTableViewCell.swift */,
-				C3DDAD9F213BA87F000A84BA /* roomTableViewCell.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -142,6 +140,16 @@
 			);
 			name = model;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C3C3F706213C8BC300D422D8 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				C37A750320D755F600719AAF /* RoomsUiViewViewController.swift */,
+				C3DDAD9E213BA87F000A84BA /* roomTableViewCell.swift */,
+				C3DDAD9F213BA87F000A84BA /* roomTableViewCell.xib */,
+			);
+			path = Rooms;
 			sourceTree = "<group>";
 		};
 		C3EFA7EE212B6ED500B41A5E /* Feeds */ = {

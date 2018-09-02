@@ -74,6 +74,10 @@ class huskyPantry: UIViewController, UITableViewDataSource, UITableViewDelegate 
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     @objc func getData(){
         //retrieve from db
         navigationController?.navigationBar.prefersLargeTitles = false

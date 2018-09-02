@@ -1,6 +1,8 @@
-# DCMobileProject
+# DC_Mobile 
+##Developer: Arrido Arfiadi
 
-iOS Application made by Arrido Arfiadi for UWB Diversity Center (Unofficial)
+iOS Application for UWB Diversity Center
+-Acts as personal platform to learn about iOS development as well as a prototype for potential future release
 
 Pods installed (Cocoapods):
 * Facebook SDK
@@ -11,5 +13,5 @@ Pods installed (Cocoapods):
 * Firebase
 * SVProgessHUD
 
-# Screenshot of Home Page
-![](https://github.com/arridoarfiadi/DCMobileProject/blob/master/previewFeed.png)
+# Preview
+![](https://github.com/arridoarfiadi/DCMobileProject/blob/master/preview.png)
