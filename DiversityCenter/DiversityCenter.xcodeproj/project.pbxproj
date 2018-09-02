@@ -101,12 +101,12 @@
 		C33F31F220C205AE00626E0C /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				C3F0417B208A5CF000A9528B /* LaunchScreen.storyboard */,
 				C3F04176208A5CEF00A9528B /* Main.storyboard */,
 				C35B3CDD20D0816300747066 /* newsFeed.storyboard */,
 				C35B3CE520D082F300747066 /* Pantry_SB.storyboard */,
 				C35B3CE920D0831200747066 /* ContactUs_SB.storyboard */,
 				C35B3CE720D0830400747066 /* POW_SB.storyboard */,
-				C3F0417B208A5CF000A9528B /* LaunchScreen.storyboard */,
 				C35B3CDF20D082B200747066 /* rooms.storyboard */,
 			);
 			path = storyboard;

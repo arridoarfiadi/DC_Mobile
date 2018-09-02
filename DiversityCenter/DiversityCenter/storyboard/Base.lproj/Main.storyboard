@@ -93,9 +93,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="University-of-Washington-Bothell-3" translatesAutoresizingMaskIntoConstraints="NO" id="zkm-gK-MLG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-SF-th8">
                                 <rect key="frame" x="163" y="586" width="48" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,13 +101,18 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="p83-Af-saR">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="jPG-a3-JMa"/>
+                                    <constraint firstAttribute="height" constant="128" id="rEa-1e-qNQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.21624758839607239" green="0.17079654335975647" blue="0.27059856057167053" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="zkm-gK-MLG" secondAttribute="trailing" id="24Q-7j-9wt"/>
-                            <constraint firstItem="zkm-gK-MLG" firstAttribute="bottom" secondItem="Uy1-Wv-STw" secondAttribute="top" id="RQ1-dx-sxt"/>
-                            <constraint firstItem="zkm-gK-MLG" firstAttribute="leading" secondItem="Li6-67-mRa" secondAttribute="leading" id="TEO-0Q-8aK"/>
-                            <constraint firstItem="zkm-gK-MLG" firstAttribute="top" secondItem="Li6-67-mRa" secondAttribute="top" id="XDy-Gn-UBc"/>
+                            <constraint firstItem="p83-Af-saR" firstAttribute="centerX" secondItem="Li6-67-mRa" secondAttribute="centerX" id="D55-05-mJg"/>
+                            <constraint firstItem="p83-Af-saR" firstAttribute="centerY" secondItem="Li6-67-mRa" secondAttribute="centerY" id="b7e-Fq-1gf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QnC-Sh-euk"/>
@@ -155,7 +157,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="University-of-Washington-Bothell-3" width="440" height="654"/>
+        <image name="logo" width="741" height="741"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ox3-ol-gGd"/>

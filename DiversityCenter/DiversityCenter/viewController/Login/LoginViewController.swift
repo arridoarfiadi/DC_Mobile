@@ -31,7 +31,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         //make facebook button
         let btnFBLogin = FBSDKLoginButton()
         btnFBLogin.readPermissions = ["public_profile","email","user_friends"]
-        btnFBLogin.frame = CGRect(x: 16, y: view.frame.height - 75, width: view.frame.width - 32, height: 50)
+        btnFBLogin.frame = CGRect(x: 16, y: (view.frame.height/2) + 75, width: view.frame.width - 32, height: 50)
         self.view.addSubview(btnFBLogin)
         btnFBLogin.delegate = self
         

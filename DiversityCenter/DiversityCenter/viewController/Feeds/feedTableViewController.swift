@@ -48,6 +48,11 @@ class feedTableViewController: UITableViewController, SwipeTableViewCellDelegate
     //Search bool
     var inSearch: Bool = false
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        tabBarController?.tabBar.isHidden = false
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadBookmarked()

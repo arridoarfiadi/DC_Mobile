@@ -23,6 +23,7 @@ class bookmarkTableViewController: UITableViewController, SwipeTableViewCellDele
         searchBar.delegate = self
         let nib = UINib(nibName: "bookmarkCell", bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: "feedCell")
+        //tabBarController?.tabBar.isHidden = true
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

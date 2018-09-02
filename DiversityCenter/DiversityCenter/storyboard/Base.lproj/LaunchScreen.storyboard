@@ -18,21 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Ri-R9-6yC">
-                                <rect key="frame" x="65" y="231" width="244" height="205"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="q5z-Fv-bQh">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="244" id="Icu-hn-Tic"/>
-                                    <constraint firstAttribute="height" constant="205" id="iJS-E7-5NT"/>
+                                    <constraint firstAttribute="height" constant="128" id="Fdt-jm-CLW"/>
+                                    <constraint firstAttribute="width" constant="240" id="IS2-6r-sXX"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.21568627450980393" green="0.17254901960784313" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.9640355492467817" green="1" blue="0.96225059617377173" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="1Ri-R9-6yC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1HQ-R7-fgs"/>
-                            <constraint firstItem="1Ri-R9-6yC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="Ljw-ih-wVv"/>
-                            <constraint firstItem="1Ri-R9-6yC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="211" id="tz9-v4-WcE"/>
-                            <constraint firstItem="1Ri-R9-6yC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ywN-Xv-atK"/>
+                            <constraint firstItem="q5z-Fv-bQh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3MM-ui-mef"/>
+                            <constraint firstItem="q5z-Fv-bQh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YiR-BF-Dix"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
