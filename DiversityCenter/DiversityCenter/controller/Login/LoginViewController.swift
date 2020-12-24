@@ -18,6 +18,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         //things to do after button is clicked
         SVProgressHUD.show()
+		fetchProfile()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -41,15 +42,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     func fetchProfile(){
         //get first and last name
-        let parameters = ["fields": "first_name,last_name, picture.type(large)"]
+        let parameters = ["fields": "first_name,last_name, picture.type(large), email"]
         FBSDKGraphRequest(graphPath:"me", parameters: parameters).start { (connection, result, error) in
-            //let resultNew = result as? [String:Any]
-            //let name = resultNew!["first_name"]  as! String
-            //let last = resultNew!["last_name"]  as! String
-            //self.nameLabel.text = name + " " + last
-            //self.nameLabel.isHidden = false
-            //self.welcome.isHidden = false
-            
+            let resultNew = result as? [String:Any]
+            let name = resultNew!["first_name"]  as! String
+            let last = resultNew!["last_name"]  as! String
+			 let email = resultNew!["email"]  as! String
+//            self.nameLabel.text = name + " " + last
+//            self.nameLabel.isHidden = false
+//            self.welcome.isHidden = false
+			
         }
         
     }

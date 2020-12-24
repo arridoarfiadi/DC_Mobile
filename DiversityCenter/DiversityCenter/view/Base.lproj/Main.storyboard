@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aD4-zx-1m9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aD4-zx-1m9">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="DINPro-Medium.ttf">
+            <string>DINPro-Medium</string>
+        </array>
+        <array key="DINPro-Regular.ttf">
+            <string>DINPro-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--newsFeed-->
         <scene sceneID="l0a-z5-aQL">
@@ -102,7 +111,7 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="p83-Af-saR">
-                                <rect key="frame" x="67" y="342" width="240" height="128"/>
+                                <rect key="frame" x="67.666666666666686" y="342" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="jPG-a3-JMa"/>
                                     <constraint firstAttribute="height" constant="128" id="rEa-1e-qNQ"/>
@@ -155,9 +164,128 @@
             </objects>
             <point key="canvasLocation" x="-298" y="475"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="yIs-VP-1me">
+            <objects>
+                <viewController id="4JK-kt-wDw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="59e-G8-TVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-zt-Poi" userLabel="Navigation">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ld-Wz-HH7">
+                                        <rect key="frame" x="20" y="26.666666666666671" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="egb-YX-dME"/>
+                                            <constraint firstAttribute="height" constant="50" id="m6D-cW-ZHi"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="circle-back">
+                                            <color key="titleColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samaritan_logo_wordmark" translatesAutoresizingMaskIntoConstraints="NO" id="XLh-1V-qkW">
+                                        <rect key="frame" x="107" y="39" width="161" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="NhP-5P-v42"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XLh-1V-qkW" secondAttribute="bottom" constant="20" id="N2D-cB-Yfj"/>
+                                    <constraint firstItem="XLh-1V-qkW" firstAttribute="centerX" secondItem="cwg-zt-Poi" secondAttribute="centerX" id="Y12-nq-fIF"/>
+                                    <constraint firstAttribute="height" constant="84" id="gR1-Fs-Gwi"/>
+                                    <constraint firstItem="XLh-1V-qkW" firstAttribute="width" secondItem="XLh-1V-qkW" secondAttribute="height" multiplier="200:31" id="mms-gH-kEz"/>
+                                    <constraint firstItem="3Ld-Wz-HH7" firstAttribute="leading" secondItem="cwg-zt-Poi" secondAttribute="leading" constant="20" id="pGS-xU-g4Z"/>
+                                    <constraint firstItem="3Ld-Wz-HH7" firstAttribute="centerY" secondItem="XLh-1V-qkW" secondAttribute="centerY" id="yKH-dI-jcc"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share-header" translatesAutoresizingMaskIntoConstraints="NO" id="Pdi-If-RwI">
+                                <rect key="frame" x="0.0" y="84" width="375" height="279"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="279" id="4wp-fK-j3e"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do More Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDL-mz-Wnq">
+                                <rect key="frame" x="20" y="382" width="144" height="29.666666666666686"/>
+                                <fontDescription key="fontDescription" name="DINPro-Medium" family="DINPro" pointSize="23"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.45882352939999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your samaritan code with a friend, and you'll each get $1 to give away." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6I-n1-9P1">
+                                <rect key="frame" x="20" y="418.66666666666669" width="335" height="84.666666666666686"/>
+                                <fontDescription key="fontDescription" name="DINPro-Medium" family="DINPro" pointSize="22"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.45882352939999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% of the money goes to beacon holders you choose to invest in." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9c-9w-31R">
+                                <rect key="frame" x="20" y="515.33333333333337" width="335" height="46.333333333333371"/>
+                                <fontDescription key="fontDescription" name="DINPro-Regular" family="DINPro" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have your friends use your code below during signup and you'll both get the bonus" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzE-G9-7HA">
+                                <rect key="frame" x="20" y="573.66666666666663" width="335" height="69.333333333333371"/>
+                                <fontDescription key="fontDescription" name="DINPro-Regular" family="DINPro" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n9c-9w-31R" firstAttribute="leading" secondItem="uck-bs-tEn" secondAttribute="leading" constant="20" id="7MF-Tr-qvw"/>
+                            <constraint firstItem="Pdi-If-RwI" firstAttribute="leading" secondItem="uck-bs-tEn" secondAttribute="leading" id="JjD-7H-8W2"/>
+                            <constraint firstItem="zzE-G9-7HA" firstAttribute="leading" secondItem="uck-bs-tEn" secondAttribute="leading" constant="20" id="Lns-Vy-651"/>
+                            <constraint firstItem="mDL-mz-Wnq" firstAttribute="leading" secondItem="uck-bs-tEn" secondAttribute="leading" constant="20" id="R4q-fy-uxi"/>
+                            <constraint firstItem="cwg-zt-Poi" firstAttribute="top" secondItem="59e-G8-TVQ" secondAttribute="top" id="T0R-Fm-vUI"/>
+                            <constraint firstItem="uck-bs-tEn" firstAttribute="trailing" secondItem="K6I-n1-9P1" secondAttribute="trailing" constant="20" id="TVw-b2-TAH"/>
+                            <constraint firstItem="uck-bs-tEn" firstAttribute="trailing" secondItem="zzE-G9-7HA" secondAttribute="trailing" constant="20" id="WMY-dy-aMk"/>
+                            <constraint firstItem="mDL-mz-Wnq" firstAttribute="top" secondItem="Pdi-If-RwI" secondAttribute="bottom" constant="19" id="WT2-iO-Wfv"/>
+                            <constraint firstItem="K6I-n1-9P1" firstAttribute="top" secondItem="mDL-mz-Wnq" secondAttribute="bottom" constant="7" id="X2y-k5-vNk"/>
+                            <constraint firstItem="Pdi-If-RwI" firstAttribute="trailing" secondItem="uck-bs-tEn" secondAttribute="trailing" id="Xex-IY-SXX"/>
+                            <constraint firstItem="Pdi-If-RwI" firstAttribute="top" secondItem="cwg-zt-Poi" secondAttribute="bottom" id="awq-Er-Qqb"/>
+                            <constraint firstItem="cwg-zt-Poi" firstAttribute="leading" secondItem="59e-G8-TVQ" secondAttribute="leading" id="dCg-Ew-ksG"/>
+                            <constraint firstItem="n9c-9w-31R" firstAttribute="top" secondItem="K6I-n1-9P1" secondAttribute="bottom" constant="12" id="h1c-OU-PF1"/>
+                            <constraint firstItem="K6I-n1-9P1" firstAttribute="leading" secondItem="uck-bs-tEn" secondAttribute="leading" constant="20" id="jY4-kl-K7v"/>
+                            <constraint firstItem="uck-bs-tEn" firstAttribute="trailing" secondItem="n9c-9w-31R" secondAttribute="trailing" constant="20" id="pkN-oU-9x5"/>
+                            <constraint firstAttribute="trailing" secondItem="cwg-zt-Poi" secondAttribute="trailing" id="wxz-IQ-IhI"/>
+                            <constraint firstItem="zzE-G9-7HA" firstAttribute="top" secondItem="n9c-9w-31R" secondAttribute="bottom" constant="12" id="xWT-Cf-riX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uck-bs-tEn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zFC-Z5-Ido"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WGd-7y-1Xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12277.6" y="2793.1034482758623"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lLa-5n-IV2">
+            <objects>
+                <navigationController storyboardIdentifier="ReferralPageViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Xd2-Ob-ejE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yvL-p8-NrU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4JK-kt-wDw" kind="relationship" relationship="rootViewController" id="UNJ-jW-gjP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Elu-y5-aMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11526" y="2794"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="circle-back" width="16" height="16"/>
         <image name="logo" width="741" height="741"/>
+        <image name="samaritan_logo_wordmark" width="16" height="16"/>
+        <image name="share-header" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ox3-ol-gGd"/>
